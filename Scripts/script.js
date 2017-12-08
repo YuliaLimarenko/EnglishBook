@@ -597,20 +597,23 @@ $( document ).ready(
 
         var SizeWidow= $(window).width();
 
-        if (SizeWidow <544){
+        if (SizeWidow <=544){
             ShowTablePart(3,0,RoomPointers);
-        }else
-        if (SizeWidow <768&&SizeWidow >544){
+        }
+        if (SizeWidow <=768&&SizeWidow >544){
             ShowTablePart(4,0,RoomPointers);
-        }else
-        if(SizeWidow<992&&SizeWidow>768){
-            ShowTablePart(5,0,RoomPointers);
-        }else
-        if(SizeWidow>992){
+        }
+        if(SizeWidow<=992&&SizeWidow>768){
             ShowTablePart(5,0,RoomPointers);
         }
+        if(SizeWidow<=1024&&SizeWidow>992){
+            ShowTablePart(5,0,RoomPointers);
+        }
+        if(SizeWidow>1024){
+            ShowTablePart(6,0,RoomPointers);
+        }
 
-        ShowTablePart(7,0,RoomPointers);
+
 
 
         $( window ).resize(function ChangeVisibleCol() {
@@ -618,16 +621,20 @@ $( document ).ready(
 
             if (SizeWidow <544){
                  ShowTablePart(3,0,RoomPointers);
-            }else
+            }
             if (SizeWidow <768&&SizeWidow >544){
                 ShowTablePart(4,0,RoomPointers);
-            }else
+            }
             if(SizeWidow<992&&SizeWidow>768){
                 ShowTablePart(5,0,RoomPointers);
-            }else
-            if(SizeWidow>992){
+            }
+            if(SizeWidow<=1024&&SizeWidow>992){
                 ShowTablePart(5,0,RoomPointers);
             }
+            if(SizeWidow>1024){
+                ShowTablePart(6,0,RoomPointers);
+            }
+
 
         });
 
