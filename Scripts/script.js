@@ -596,8 +596,11 @@ $( document ).ready(
     function() {
 
         var SizeWidow= $(window).width();
+        if  (SizeWidow<=310){
+            ShowTablePart(2,0,RoomPointers);
+        }
 
-        if (SizeWidow <=544){
+        if (SizeWidow <=544&&SizeWidow>310){
             ShowTablePart(3,0,RoomPointers);
         }
         if (SizeWidow <=768&&SizeWidow >544){
@@ -619,7 +622,10 @@ $( document ).ready(
         $( window ).resize(function ChangeVisibleCol() {
             var SizeWidow= $(window).width();
 
-            if (SizeWidow <544){
+            if  (SizeWidow<310){
+                ShowTablePart(2,0,RoomPointers);
+            }
+            if (SizeWidow <544&&SizeWidow>310){
                  ShowTablePart(3,0,RoomPointers);
             }
             if (SizeWidow <768&&SizeWidow >544){
