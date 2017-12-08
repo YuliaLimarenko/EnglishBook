@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CreateSchedule</title>
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body>
+<script src="Scripts/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="CSS/style_nav.css">
+<link rel="stylesheet" type="text/css" href="CSS/style_createSchedule.css">
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="#index.html">Расписание</a></li>
+            <li><a href="#">Ученики</a></li>
+            <li><a href="#">Штат</a></li>
+            <li><a href="#">Календарь</a></li>
+            <li><a href="#">Оплата</a></li>
+            <li class="nav-ul-logo"><a href="index.html"><img src="Images/logo.png" width="10%" height="20%" alt=Learn&Talk></a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="date-filter">
+    <div id="mainDate"> </div>
+    <div class="main-filter">
+        <form action="">
+            <select name="filterShedule" id="filterShedule">
+                <option value="">Выбрать фильтр</option>
+            </select>
+        </form>
+    </div>
+    </div>
+    <!--<div class="CreateScheduleMain">-->
+<div class="Divaccordion">
+    <h1 class="accordionTittle">Расписание:</h1>
+    <div class="btn-create-schedule">
+    <button id="btnCreate">Создать расписание</button>
+    </div>
+    <div class="acordion">
+    <details open>
+        <summary>Активное расписание</summary>
+
+        <div class="info-about-active-schedule">
+            <ul id="ulActiveSchedule">
+            </ul>
+            <ul id="ulActiveScheduleDate">
+            </ul>
+        </div>
+
+    </details>
+    <details>
+        <summary>Черновики</summary>
+        <div class="info-about-draft-schedule-main">
+            <div class=info-about-draft-schedule>
+                <ul id="ulDraftSchedule">
+
+                </ul>
+                <ul id="ulDraftScheduleDate">
+                </ul>
+
+
+            </div>
+            <div class="delete-draft-schedule">
+                <ul id="ulDraftRemove">
+
+                </ul>
+            </div>
+        </div>
+
+    </details>
+    </div>
+</div>
+    <!--<div class="btn-create-schedule">-->
+        <!--<button id="btnCreate">Создать расписание</button>-->
+    <!--</div>-->
+    <!--</div>-->
+
+</main>
+<script src="Scripts/script_Date.js"></script>
+<script src="Scripts/scriptShedule_list.js"></script>
+<script src="Scripts/jquery.details.js"></script>
+<script>
+    $(function() {
+        // Add conditional classname based on support
+        $('html').addClass($.fn.details.support ? 'details' : 'no-details');
+        // Emulate <details> where necessary and enable open/close event handlers
+        $('details').details();
+    });
+</script>
+
+
+
+</body>
+</html>

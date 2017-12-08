@@ -1,0 +1,136 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  padding-right: 10%; }
+  body button {
+    cursor: pointer; }
+  body button:active, body :hover, body :focus {
+    outline: 0;
+    outline-offset: 0; }
+  body .StartTime {
+    padding-top: 20%; }
+    body .StartTime td {
+      border: 1px solid black;
+      vertical-align: middle; }
+  body .wrapper-table {
+    margin-bottom: 10%;
+    clear: both;
+    position: relative;
+    top: 50px;
+    padding-left: 10%; }
+    body .wrapper-table .btn-schedule-name {
+      height: 15px; }
+    body .wrapper-table table {
+      margin-top: 3%; }
+      body .wrapper-table table td {
+        height: 30px; }
+      body .wrapper-table table td {
+        text-align: center; }
+    body .wrapper-table .btn-name {
+      background: none;
+      border: none; }
+    body .wrapper-table .span-name-shedule {
+      top: -50px; }
+    body .wrapper-table .tr-day-of-week {
+      height: 40px; }
+      body .wrapper-table .tr-day-of-week button {
+        border: none;
+        background: none;
+        position: relative;
+        top: 5px; }
+        body .wrapper-table .tr-day-of-week button .img-btn {
+          width: 30px;
+          height: 20px; }
+      body .wrapper-table .tr-day-of-week td {
+        padding-top: 2%;
+        font-size: 1.5vw;
+        width: 20%;
+        padding-bottom: 2%; }
+        body .wrapper-table .tr-day-of-week td hr {
+          border: none;
+          /* Убираем границу для браузера Firefox */
+          color: #0ba5aa;
+          /* Цвет линии для остальных браузеров */
+          background-color: #0ba5aa;
+          /* Цвет линии для браузера Firefox и Opera */
+          height: 2px;
+          /* Толщина линии */
+          width: 90%;
+          margin-bottom: 5%; }
+    body .wrapper-table .tr-name-of-class td {
+      padding-bottom: 1%;
+      padding-top: 1%; }
+    body .wrapper-table .tr-name-of-class button {
+      border: none;
+      background: none;
+      margin-right: 4%; }
+      body .wrapper-table .tr-name-of-class button .img-btn {
+        width: 20px;
+        height: 13px; }
+    body .wrapper-table .tr-name-of-class hr {
+      border: none;
+      /* Убираем границу для браузера Firefox */
+      color: #0ba5aa;
+      /* Цвет линии для остальных браузеров */
+      background-color: #0ba5aa;
+      /* Цвет линии для браузера Firefox и Opera */
+      height: 2px;
+      /* Толщина линии */
+      width: 70%;
+      margin-bottom: 5%; }
+  body .name-of-shedule {
+    text-align: center; }
+    body .name-of-shedule span {
+      position: relative;
+      top: -10px; }
+    body .name-of-shedule .btn-name {
+      border: none;
+      background: none; }
+
+/*# sourceMappingURL=style.css.map */
