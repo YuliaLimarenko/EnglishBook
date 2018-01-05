@@ -107,23 +107,27 @@ $( document ).ready(function() {
         {
             var liDraftSchedule=document.createElement('a');
             var newLi= document.createElement('li');
-            newLi.append(liDraftSchedule);
+           $(liDraftSchedule).appendTo(newLi);
+            var newCheckbox=document.createElement('input');
+            newCheckbox.type='checkbox';
+            newCheckbox.name='draftDays';
+            $(newCheckbox).insertBefore(liDraftSchedule);
             liDraftSchedule.innerHTML= ScheduleDraft[SchedulesCounter].Name;
             liDraftSchedule.setAttribute('href', '#');
             liDraftSchedule.setAttribute('id', ScheduleDraft[SchedulesCounter].id);
             liDraftSchedule.setAttribute('class', 'ScheduleDraftSend');
-            $('#ulDraftSchedule').append(newLi);
+            $(newLi).appendTo('#ulDraftSchedule');
             var liDraftScheduleDate=document.createElement('a');
             var newLiDate= document.createElement('li');
-            newLiDate.append(liDraftScheduleDate);
+            $(liDraftScheduleDate).appendTo(newLiDate);
             liDraftScheduleDate.innerHTML= ScheduleDraft[SchedulesCounter].Date;
             liDraftScheduleDate.setAttribute('href', '#');
             // liDraftScheduleDate.setAttribute('id', ScheduleDraft[SchedulesCounter].id);
-            $('#ulDraftScheduleDate').append(newLiDate);
+            $(newLiDate).appendTo('#ulDraftScheduleDate');
             var newLiDelete=document.createElement('li');
             newLiDelete.innerHTML=
         '<button class="btnImg"><img src="Images/delete.png" class="imgRemove" width="10%" alt="X" ></button>';
-            $('#ulDraftRemove').append(newLiDelete);
+            $(newLiDelete).appendTo('#ulDraftRemove');
         }
         var countLi=$("#ulDraftSchedule").find("li").length;
         if(countLi>5){
@@ -144,19 +148,23 @@ $( document ).ready(function() {
         {
             var liActiveSchedule=document.createElement('a');
             var newLi= document.createElement('li');
-            newLi.append(liActiveSchedule);
+            $(liActiveSchedule).appendTo(newLi);
+            var newCheckbox=document.createElement('input');
+            newCheckbox.type='checkbox';
+            newCheckbox.name='ativeDays';
+            $(newCheckbox).insertBefore(liActiveSchedule);
             liActiveSchedule.innerHTML= ScheduleActive[SchedulesCounter].Name;
             liActiveSchedule.setAttribute('href', '#');
             liActiveSchedule.setAttribute('id', ScheduleActive[SchedulesCounter].id);
             liActiveSchedule.setAttribute('class', 'ScheduleActiveSend');
-                $('#ulActiveSchedule').append(newLi);
+                $(newLi).appendTo('#ulActiveSchedule');
                 var liActiveScheduleDate=document.createElement('a');
                 var newLiDate= document.createElement('li');
-                newLiDate.append(liActiveScheduleDate);
+                $(liActiveScheduleDate).appendTo(newLiDate);
                 liActiveScheduleDate.innerHTML= ScheduleActive[SchedulesCounter].Date;
                 liActiveScheduleDate.setAttribute('href', '#');
             //liActiveScheduleDate.setAttribute('id', ScheduleActive[SchedulesCounter].id);
-                $('#ulActiveScheduleDate').append(newLiDate);
+                $(newLiDate).appendTo(('#ulActiveScheduleDate'));
 
         }
 
