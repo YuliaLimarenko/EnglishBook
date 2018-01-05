@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,138 +20,99 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
-}
+  vertical-align: baseline; }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block;
-}
+  display: block; }
+
 body {
-  line-height: 1;
-}
+  line-height: 1; }
+
 ol, ul {
-  list-style: none;
-}
+  list-style: none; }
+
 blockquote, q {
-  quotes: none;
-}
+  quotes: none; }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
-  content: none;
-}
+  content: none; }
+
 table {
   border-collapse: collapse;
-  border-spacing: 0;
-}
+  border-spacing: 0; }
 
+body {
+  font-size: 16px;
+  padding-left: 10%;
+  padding-right: 10%; }
 
-body{
-  //padding-right:10%;
-  font-size:16px;
-  padding-left:10%;
-  padding-right:10%;
-}
 nav {
-  padding-top:0;
-
-  .navMobile{
-
-   //display: none;
-    #gumbMob{
-      margin-top:3%;
-      margin-right:2%;
-    }
-    .logoMob{
-      position: relative;
-     top:-6px;
-    }
-  }
-
-
-  ul {
-
+  padding-top: 0; }
+  nav .navMobile #gumbMob {
+    margin-top: 3%;
+    margin-right: 2%; }
+  nav .navMobile .logoMob {
+    position: relative;
+    top: -6px; }
+  nav ul {
     text-align: right;
-    padding-bottom: 2%;
-    li {
-     // font-size:1.5vw;
-      display: inline;
-      //margin: 2px;
-
-      a {
+    padding-bottom: 2%; }
+    nav ul li {
+      display: inline; }
+      nav ul li a {
         color: #032c6d;
         font-weight: bold;
         list-style-type: none;
-        text-decoration: none;
-      }
-      a:hover {
-        color: #269376;
-      }
-
-    }
-
-    .nav-ul-logo {
+        text-decoration: none; }
+      nav ul li a:hover {
+        color: #269376; }
+    nav ul .nav-ul-logo {
       position: relative;
       top: 10px;
-      margin-right: -2.5%;
-    }
-  }
-}
+      margin-right: -2.5%; }
+
 img {
   display: inline-block;
   height: auto;
+  max-width: 100%; }
 
-  max-width: 100%;
-}
 #mainDate {
   position: relative;
   float: right;
   padding-top: 1%;
-  clear: both;
+  clear: both; }
 
-}
 .main-filter {
   position: relative;
   float: right;
   margin-top: 1%;
-  clear: both;
-}
-
-
+  clear: both; }
 
 @media (max-width: 705px) {
-
   .hideNav {
-    padding:5px;
-    border:1px solid lightgrey ;
+    padding: 5px;
+    border: 1px solid lightgrey;
     display: none;
     position: absolute;
     z-index: 300;
     text-align: right;
-    margin-right:40px;
+    margin-right: 40px;
     background: white;
-    margin-left:45%;
-    border-radius: 5px 5px;
-
-    li{
+    margin-left: 45%;
+    border-radius: 5px 5px; }
+    .hideNav li {
       display: block;
-      padding:5px;
-}
-    li:last-child{
-      border-top: 1px solid lightgrey;
-      #imgLogo{
-        width: 50%;
-      }
-
-    }
-
-  }
-
-}
-
+      padding: 5px; }
+    .hideNav li:last-child {
+      border-top: 1px solid lightgrey; }
+      .hideNav li:last-child #imgLogo {
+        width: 50%; } }
 @media (min-width: 705px) {
-  .navMobile{
-    display: none;
-  }
-}
+  .navMobile {
+    display: none; } }
+
+/*# sourceMappingURL=style_nav.css.map */
