@@ -46,17 +46,23 @@ table {
   border-spacing: 0; }
 
 body {
+  font-size: 16px;
+  padding-left: 10%;
   padding-right: 10%; }
 
 nav {
-  padding-top: 1%; }
+  padding-top: 0; }
+  nav .navMobile #gumbMob {
+    margin-top: 3%;
+    margin-right: 2%; }
+  nav .navMobile .logoMob {
+    position: relative;
+    top: -6px; }
   nav ul {
     text-align: right;
     padding-bottom: 2%; }
     nav ul li {
-      font-size: 1.5vw;
-      display: inline;
-      margin: 2px; }
+      display: inline; }
       nav ul li a {
         color: #032c6d;
         font-weight: bold;
@@ -85,5 +91,28 @@ img {
   float: right;
   margin-top: 1%;
   clear: both; }
+
+@media (max-width: 705px) {
+  .hideNav {
+    padding: 5px;
+    border: 1px solid lightgrey;
+    display: none;
+    position: absolute;
+    z-index: 300;
+    text-align: right;
+    margin-right: 40px;
+    background: white;
+    margin-left: 45%;
+    border-radius: 5px 5px; }
+    .hideNav li {
+      display: block;
+      padding: 5px; }
+    .hideNav li:last-child {
+      border-top: 1px solid lightgrey; }
+      .hideNav li:last-child #imgLogo {
+        width: 50%; } }
+@media (min-width: 705px) {
+  .navMobile {
+    display: none; } }
 
 /*# sourceMappingURL=style_nav.css.map */

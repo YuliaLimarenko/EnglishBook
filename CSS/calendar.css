@@ -1,0 +1,274 @@
+@charset "UTF-8";
+html {
+  overflow-x: hidden;
+  font-size: 16px; }
+  html body {
+    padding-left: 10%; }
+  html .hide-layout {
+    margin-left: -10%;
+    background: #000;
+    /* фон */
+    bottom: 0;
+    /* координата снизу */
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+    /* прозрачность для IE */
+    height: 100%;
+    /* высота на всю страницу */
+    opacity: 0.5;
+    /* прозрачность слоя */
+    position: fixed;
+    /* фиксируем элемент на странице*/
+    top: 0;
+    /* координата сверху */
+    width: 100%;
+    /* ширина на всю страницу */
+    z-index: 98;
+    /* z-index для перекрытия остальных элементов */ }
+  html .modal-wrapper {
+    overflow: auto;
+    padding-top: 3%;
+    text-align: center;
+    border-radius: 10px 10px;
+    z-index: 1000;
+    height: 100%;
+    background: #e8e4e4;
+    width: 80%;
+    position: fixed; }
+    html .modal-wrapper #close {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      left: -4%;
+      top: -2%;
+      cursor: pointer; }
+    html .modal-wrapper .modal-info-main {
+      display: flex;
+      flex-direction: row;
+      width: 100%; }
+      html .modal-wrapper .modal-info-main .filters {
+        width: 25%; }
+        html .modal-wrapper .modal-info-main .filters li {
+          padding-left: 20%;
+          cursor: pointer; }
+      html .modal-wrapper .modal-info-main .table-schedule {
+        width: 75%; }
+    html .modal-wrapper .rooms {
+      margin-top: 3%;
+      display: flex;
+      justify-content: center; }
+      html .modal-wrapper .rooms table td {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: center;
+        vertical-align: center; }
+  html main .filterPeriod {
+    position: relative;
+    float: right;
+    padding-top: 1%;
+    clear: both;
+    left: 140px; }
+    html main .filterPeriod .spanCal {
+      position: relative;
+      top: 4px; }
+      html main .filterPeriod .spanCal img {
+        cursor: pointer; }
+    html main .filterPeriod input {
+      width: 20%;
+      font-size: 14px;
+      text-align: center; }
+    html main .filterPeriod .brperiod {
+      display: none; }
+  html main .calendar td {
+    width: 50px; }
+  html main .calendar {
+    clear: both;
+    position: relative;
+    top: 40px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5%;
+    width: 100%; }
+    html main .calendar .calendar1 {
+      width: 70%; }
+      html main .calendar .calendar1 #calendar1 {
+        margin-left: 45%; }
+    html main .calendar td {
+      border-right: 1px solid #032c6d;
+      height: 20px;
+      text-align: center;
+      vertical-align: middle; }
+      html main .calendar td img {
+        width: 35px; }
+    html main .calendar .curDay {
+      cursor: pointer; }
+    html main .calendar .calendarHat month {
+      margin-top: 5%; }
+    html main .calendar .calendarHat td {
+      border: none;
+      font-size: 20px;
+      color: #032c6d;
+      text-transform: uppercase;
+      padding-bottom: 5%;
+      padding-top: 8%; }
+    html main .calendar .dayweek td {
+      font-size: 18px;
+      padding-bottom: 20px;
+      color: #032c6d;
+      text-transform: uppercase; }
+    html main .calendar tr > td:last-child {
+      border: none; }
+  html main .info-about-calendar {
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 120px;
+    justify-content: center; }
+    html main .info-about-calendar img {
+      width: 30px;
+      height: 30px; }
+    html main .info-about-calendar li {
+      padding-top: 10px;
+      display: flex;
+      flex-direction: row; }
+    html main .info-about-calendar .info-left, html main .info-about-calendar .info-right {
+      padding: 20px; }
+      html main .info-about-calendar .info-left span, html main .info-about-calendar .info-right span {
+        padding-top: 5px;
+        padding-left: 25px; }
+        html main .info-about-calendar .info-left span br:after, html main .info-about-calendar .info-right span br:after {
+          padding-left: 25px; }
+  html main .div-table-of-lessons {
+    margin-top: 15px;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center; }
+    html main .div-table-of-lessons .table-of-lessons {
+      text-align: center; }
+      html main .div-table-of-lessons .table-of-lessons td {
+        height: 25px;
+        border: 2px solid #032c6d;
+        padding: 5px 20px;
+        vertical-align: middle;
+        color: #032c6d; }
+
+.calendar2, .calendar2-1 {
+  padding-bottom: 1%;
+  display: none;
+  position: absolute;
+  margin-top: -30px;
+  background: white;
+  border: 1px solid lightgray;
+  box-shadow: 7px 7px 10px -7px rgba(0, 0, 0, 0.5);
+  z-index: 10; }
+  .calendar2 #calendar2 .tdDate, .calendar2 #calendar2-1 .tdDate, .calendar2-1 #calendar2 .tdDate, .calendar2-1 #calendar2-1 .tdDate {
+    background-image: url("../Images/krug4.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-position: center bottom; }
+  .calendar2 #calendar2 .calendarHat .month, .calendar2 #calendar2 .calendarHat .year, .calendar2 #calendar2-1 .calendarHat .month, .calendar2 #calendar2-1 .calendarHat .year, .calendar2-1 #calendar2 .calendarHat .month, .calendar2-1 #calendar2 .calendarHat .year, .calendar2-1 #calendar2-1 .calendarHat .month, .calendar2-1 #calendar2-1 .calendarHat .year {
+    padding-top: 1%;
+    padding-bottom: 2%;
+    font-size: 2.2vh;
+    text-transform: lowercase; }
+    .calendar2 #calendar2 .calendarHat .month .btn-name, .calendar2 #calendar2 .calendarHat .year .btn-name, .calendar2 #calendar2-1 .calendarHat .month .btn-name, .calendar2 #calendar2-1 .calendarHat .year .btn-name, .calendar2-1 #calendar2 .calendarHat .month .btn-name, .calendar2-1 #calendar2 .calendarHat .year .btn-name, .calendar2-1 #calendar2-1 .calendarHat .month .btn-name, .calendar2-1 #calendar2-1 .calendarHat .year .btn-name {
+      border: none;
+      background: none;
+      outline: none;
+      cursor: pointer; }
+      .calendar2 #calendar2 .calendarHat .month .btn-name img, .calendar2 #calendar2 .calendarHat .year .btn-name img, .calendar2 #calendar2-1 .calendarHat .month .btn-name img, .calendar2 #calendar2-1 .calendarHat .year .btn-name img, .calendar2-1 #calendar2 .calendarHat .month .btn-name img, .calendar2-1 #calendar2 .calendarHat .year .btn-name img, .calendar2-1 #calendar2-1 .calendarHat .month .btn-name img, .calendar2-1 #calendar2-1 .calendarHat .year .btn-name img {
+        width: 10px;
+        outline: none; }
+  .calendar2 #calendar2 .dayweek td, .calendar2 #calendar2-1 .dayweek td, .calendar2-1 #calendar2 .dayweek td, .calendar2-1 #calendar2-1 .dayweek td {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 2vh; }
+  .calendar2 #calendar2 td, .calendar2 #calendar2-1 td, .calendar2-1 #calendar2 td, .calendar2-1 #calendar2-1 td {
+    height: 25px;
+    width: 30px;
+    font-size: 2.3vh; }
+  .calendar2 #calendar2 .tdNumbers span, .calendar2 #calendar2-1 .tdNumbers span, .calendar2-1 #calendar2 .tdNumbers span, .calendar2-1 #calendar2-1 .tdNumbers span {
+    padding-left: 2px;
+    padding-right: 2px;
+    cursor: default; }
+  .calendar2 #calendar2 .curDay, .calendar2 #calendar2-1 .curDay, .calendar2-1 #calendar2 .curDay, .calendar2-1 #calendar2-1 .curDay {
+    cursor: default; }
+  .calendar2 #calendar2 .tdNumbers span:hover, .calendar2 #calendar2-1 .tdNumbers span:hover, .calendar2-1 #calendar2 .tdNumbers span:hover, .calendar2-1 #calendar2-1 .tdNumbers span:hover {
+    border: 1px solid #00ad27; }
+  .calendar2 #calendar2 .empty, .calendar2 #calendar2-1 .empty, .calendar2-1 #calendar2 .empty, .calendar2-1 #calendar2-1 .empty {
+    display: none; }
+
+@media (max-width: 992px) {
+  html main .calendar .calendarHat td {
+    font-size: 16px; }
+  html main .calendar .dayweek td {
+    font-size: 14px; }
+  html .info-about-calendar span {
+    font-size: 14px; } }
+@media (max-width: 705px) {
+  html main .info-about-calendar .info-left span,
+  html main .info-about-calendar .info-right span {
+    padding-left: 0px; }
+
+  html main .calendar {
+    padding-left: 10px; }
+  html main .info-about-calendar {
+    padding-left: 0;
+    flex-direction: column;
+    text-align: center; }
+    html main .info-about-calendar .info-left {
+      padding-bottom: 0;
+      padding-top: 30px;
+      padding-left: 15%; }
+    html main .info-about-calendar .info-right {
+      padding-top: 0;
+      padding-left: 15%; }
+  html main .info-about-calendar span {
+    font-size: 14px;
+    text-align: left; }
+  html .div-table-of-lessons .table-of-lessons {
+    font-size: 14px;
+    padding-left: 10%; }
+
+  html main .filterPeriod {
+    left: 0;
+    padding-right: 5%;
+    text-align: center;
+    top: 10px; }
+    html main .filterPeriod .spanChoose {
+      bottom: 20%; }
+      html main .filterPeriod .spanChoose .brperiod {
+        display: inline; }
+    html main .filterPeriod input {
+      width: 30%; }
+    html main .filterPeriod .spanCal img {
+      width: 4%; } }
+@media (max-width: 405px) {
+  html main .div-table-of-lessons .table-of-lessons td {
+    padding: 1px; }
+
+  html main .calendar {
+    padding-left: 0;
+    width: 100%; }
+
+  html main .calendar td {
+    padding-left: 5px;
+    padding-right: 5px; }
+
+  html main .info-about-calendar {
+    padding-left: 20px; }
+    html main .info-about-calendar .info-left, html main .info-about-calendar .info-right {
+      padding-left: 0; }
+
+  html .main .calendar tr > td:last-child {
+    width: 20px; }
+  html .main .info-about-calendar img {
+    width: 10px; }
+
+  html main .filterPeriod .spanCal img {
+    width: 6%; }
+
+  html main .calendar .calendar1 {
+    margin-left: -15%; } }
+
+/*# sourceMappingURL=calendar.css.map */
