@@ -7,22 +7,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Learn&talk</title>
 
+
+
+
 </head>
 <body>
 <script src="Scripts/jquery-3.2.1.min.js"></script>
-<script src="Scripts/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="CSS/style.css">
 <link rel="stylesheet" type="text/css" href="CSS/style_nav.css">
 <link rel="stylesheet" type="text/css" href="CSS/mediaTable.css">
+<link rel="stylesheet" type="text/css" href="CSS/style_filter.css">
+<![if IE]>
+<style>
+    .tr-name-of-class hr {
+        margin-top: 0;
+        border: none; /* Убираем границу для браузера Firefox */
+        color: #0bc129; /* Цвет линии для остальных браузеров */
+        background-color: #0bc129; /* Цвет линии для браузера Firefox и Opera */
+        height: 2px; /* Толщина линии */
+        width: 100%;
+
+    }
+</style>
+<![endif]>
+
 <header>
     <nav>
-        <ul>
+        <ul class="navMobile">
+            <li><img src="Images/burger.png" width="10%" alt="" id="gumbMob"></li>
+            <!--<li class="logoMob"><a href="index.html"><img src="Images/logo.png" width="13%" height="20%"-->
+            <!--alt=Learn&Talk></a></li>-->
+        </ul>
+        <ul class="hideNav">
             <li><a href="#index.html">Расписание</a></li>
             <li><a href="#">Ученики</a></li>
             <li><a href="#">Штат</a></li>
-            <li><a href="#">Календарь</a></li>
+            <li><a href="calendar.html">Календарь</a></li>
             <li><a href="#">Оплата</a></li>
-            <li class="nav-ul-logo"><a href="index.html"><img src="Images/logo.png" width="10%" height="20%" alt=Learn&Talk></a></li>
+            <li class="nav-ul-logo">
+                <a href="index.html"><img id="imgLogo" src="Images/logo.png"
+                                          width="9%" height="20%" alt=Learn&Talk>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -31,10 +57,14 @@
     <div id="mainDate"> </div>
     <div class="main-filter">
         <form action="">
-            <select name="filterShedule" id="filterShedule">
-                <option value="">Выбрать фильтр</option>
-            </select>
+            <div class="input-filter">
+                <input id="inputFilter" placeholder="Введите текст или выберите фильтр" type="text">
+            </div>
+            <div id="list-filter">
+                <div id="acordeon-filter"></div>
+            </div>
         </form>
+
     </div>
 <div class="wrapper-table">
     <!--   -->
@@ -47,6 +77,40 @@
 </div>
 
 </main>
+
+<div class="context">
+    <div class="contextMenu" id="menuRoom">
+        <ul class="contextMenuItems">
+            <li class="contextMenuItem " id='addRoom' onclick="AddRoominObj()">
+                Добавить класс
+            </li>
+            <hr>
+            <li class="contextMenuItem" id="RemoveRoom" >
+                Удалить класс
+            </li>
+
+
+        </ul>
+    </div>
+
+    <div class="contextMenu" id="menuLesson">
+        <ul class="contextMenuItems">
+            <li class="contextMenuItem " id='AddLesson'>
+                Добавить урок
+            </li>
+            <hr>
+            <li class="contextMenuItem" id="RemoveLesson" >
+                Удалить урок
+            </li>
+            <hr>
+            <li class="contextMenuItem" id="ClearLesson">
+                Очистить урок
+            </li>
+
+        </ul>
+    </div>
+</div>
+
 <footer></footer>
 
 <script src="Scripts/script.js"></script>

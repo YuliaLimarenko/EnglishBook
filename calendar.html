@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learn&talk</title>
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+<script src="Scripts/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<!--<script src="Scripts/bootstrap.min.js"></script>-->
+<link rel="stylesheet" type="text/css" href="CSS/style_nav.css">
+<link rel="stylesheet" type="text/css" href="CSS/calendar.css">
+<link rel="stylesheet" type="text/css" href="CSS/style_filter.css">
+
+<header>
+    <nav>
+        <ul class="navMobile">
+            <li><img src="Images/burger.png" width="10%" alt="" id="gumbMob"></li>
+            <!--<li class="logoMob"><a href="index.html"><img src="Images/logo.png" width="13%" height="20%"-->
+                                                              <!--alt=Learn&Talk></a></li>-->
+        </ul>
+        <ul class="hideNav">
+            <li><a href="index.html">Расписание</a></li>
+            <li><a href="#">Ученики</a></li>
+            <li><a href="#">Штат</a></li>
+            <li><a href="calendar.html">Календарь</a></li>
+            <li><a href="#">Оплата</a></li>
+            <li class="nav-ul-logo">
+                <a href="index.html"><img id="imgLogo" src="Images/logo.png"
+                 width="9%" height="20%" alt=Learn&Talk>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div id="mainDate"></div>
+    <div class="main-filter">
+        <form action="">
+            <div class="input-filter">
+                <input id="inputFilter" placeholder="Введите текст или выберите фильтр" type="text">
+            </div>
+            <div id="list-filter">
+                <div id="acordeon-filter"></div>
+            </div>
+        </form>
+
+    </div>
+    <div class="filterPeriod">
+        <span class="spanChoose">Выбрать период <br class="brperiod"></span>
+        <label>с: &#160 <input title="Введите дату в фомате 'месяц.число.год' " type="text" id="StartPeriod"></label><span
+            class="spanCal">
+        <img src="Images/calend.png" width="2%" alt="calendar" id="imgStartPeriod"></span>
+
+        <label>  &#160 по:  &#160<input title="Введите дату в фомате 'месяц.число.год' " type="text" id="FinishPeriod"> </label><span
+            class="spanCal">
+        <img src="Images/calend.png" width="2%" alt="calendar" id="imgFinishPeriod"></span>
+
+    </div>
+    <div class="calendar">
+        <div class="calendar1">
+            <table id="calendar1">
+            </table>
+        </div>
+        <div class="calendar2">
+            <table id="calendar2">
+            </table>
+        </div>
+        <div class="calendar2-1">
+            <table id="calendar2-1">
+            </table>
+        </div>
+    </div>
+
+    <div class="info-about-calendar">
+        <div class="info-left">
+            <ul>
+                <li><img src="Images/Present.jpg" alt="V">
+                    <span>Все занятия проведены по расписанию</span>
+                </li>
+                <li><img src="Images/Absent.jpg" alt="X">
+                    <span>Все занятия отменены</span>
+                </li>
+                <li><img src="Images/Plan.jpg" alt="X">
+                    <span>Планируемые занятия без  изменения в расписании</span>
+                </li>
+            </ul>
+        </div>
+        <div class="info-right">
+            <ul>
+                <li><img src="Images/Changes.jpg" alt="X">
+                    <span>Занятия проведены с изменениями в  расписании</span>
+                </li>
+                <!--<li class="emptyLi"></li>-->
+                <li><img src="Images/Miss.jpg" alt="V">
+                    <span>Планируемые занятия с изменениями в расписании</span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="div-table-of-lessons">
+        <table class="table-of-lessons" id="TableLessons">
+            <tr>
+                <td></td>
+                <td>Занятий проведено</td>
+                <td>Не проведено</td>
+                <td style="font-weight: bold">Всего</td>
+            </tr>
+        </table>
+    </div>
+
+
+</main>
+<!--modal-->
+<div class="modal-wrapper" hidden="true">
+    <span id="close">X</span>
+
+    <div class="modal-info-main">
+        <div class="filters">
+            <div class="Divaccordion">
+                <h1 class="accordionTittle">Поиск по категориям</h1>
+                <div class="acordion">
+                    <details open>
+                        <summary>Кабинет</summary>
+                        <div class="cabinets">
+                            <ul id="name-cabinets">
+                                <li>Кабинет 1</li>
+                                <li>Кабинет 2</li>
+                                <li>Кабинет 3</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Учитель</summary>
+                        <div class="teachers">
+                            <ul id="name-teachers">
+                                <li>Учитель 1</li>
+                                <li>Учитель 2</li>
+                                <li>Учитель 3</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Предмет</summary>
+                        <div class="lessons">
+                            <ul id="name-lessons">
+                                <li>Предмет 1</li>
+                                <li>Предмет 2</li>
+                                <li>Предмет 3</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+        <div class="table-schedule">
+            <div class="date">22.12.2017</div>
+            <div class="rooms">
+                <table>
+                    <tr class="room-name">
+                        <td colspan="2">Room1</td>
+                        <td colspan="2">Room2</td>
+                        <td colspan="2">Room3</td>
+
+                    </tr>
+                    <tr>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев<br>
+                                Васильев<br>
+                                Кравцов<br>
+                            </div>
+                        </td>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев<br>
+                                Васильев<br>
+                                Кравцов
+                            </div>
+                        </td>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев<br>
+                                Васильев<br>
+                                Кравцов
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев<br>
+                                Васильев<br>
+                                Кравцов
+                            </div>
+                        </td>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев<br>
+                                Васильев<br>
+                                Кравцов
+                            </div>
+                        </td>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев V<br>
+                                Васильев X<br>
+                                Кравцов V
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев X<br>
+                                Васильев V<br>
+                                Кравцов X
+                            </div>
+                        </td>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев<br>
+                                Васильев<br>
+                                Кравцов
+                            </div>
+                        </td>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев<br>
+                                Васильев<br>
+                                Кравцов
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев<br>
+                                Васильев<br>
+                                Кравцов
+                            </div>
+                        </td>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев<br>
+                                Васильев<br>
+                                Кравцов
+                            </div>
+                        </td>
+                        <td>08:00</td>
+                        <td>
+                            <div>
+                                Английский <br>
+                                учитель: Орландо Блум <br>
+                                список учеников: <br>
+                                Андреев<br>
+                                Васильев<br>
+                                Кравцов
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div><img src="Images/Present.jpg" width="30px" alt="V">
+                <span>Все занятия проведены по расписанию</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="Scripts/script_Date.js"></script>
+<script src="Scripts/scriptCalendar.js"></script>
+<script src="Scripts/jquery.details.js"></script>
+<script>
+    $(function() {
+        // Add conditional classname based on support
+        $('html').addClass($.fn.details.support ? 'details' : 'no-details');
+        // Emulate <details> where necessary and enable open/close event handlers
+        $('details').details();
+    });
+</script>
+
+
+<div class="hide-layout" hidden="true"></div>
+</body>
+</html>
