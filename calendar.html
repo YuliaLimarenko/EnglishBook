@@ -24,11 +24,11 @@
                                                               <!--alt=Learn&Talk></a></li>-->
         </ul>
         <ul class="hideNav">
-            <li><a href="index.html">Расписание</a></li>
-            <li><a href="#">Ученики</a></li>
-            <li><a href="#">Штат</a></li>
-            <li><a href="calendar.html">Календарь</a></li>
-            <li><a href="#">Оплата</a></li>
+            <li><a href="list_shedule.html"id="NavSchedule">Расписание</a></li>
+            <li><a href="#" id="NavStudents">Ученики</a></li>
+            <li><a href="#" id="NavShtat">Штат</a></li>
+            <li><a href="calendar.html" id="Navcalendar">Календарь</a></li>
+            <li><a href="#" id="NavMoney">Оплата</a></li>
             <li class="nav-ul-logo">
                 <a href="index.html"><img id="imgLogo" src="Images/logo.png"
                  width="9%" height="20%" alt=Learn&Talk>
@@ -41,12 +41,16 @@
 <main>
     <div id="mainDate"></div>
     <div class="main-filter">
-        <form action="">
+        <form action="" onkeypress="if(event.keyCode == 13) return false">
             <div class="input-filter">
-                <input id="inputFilter" placeholder="Введите текст или выберите фильтр" type="text">
+                <input id="inputFilter" autocomplete="off" placeholder="Введите текст или выберите фильтр" type="text">
             </div>
             <div id="list-filter">
-                <div id="acordeon-filter"></div>
+                <div class="acordeon-wrapper">
+                    <div id="acordeon-filter"></div>
+                    <div id="acordeon-span"></div>
+                </div>
+
             </div>
         </form>
 
@@ -329,6 +333,7 @@
         // Emulate <details> where necessary and enable open/close event handlers
         $('details').details();
     });
+
 </script>
 
 

@@ -1,18 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" oncontextmenu="return false;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Learn&talk</title>
-
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 
 
 </head>
-<body>
+<body >
 <script src="Scripts/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="CSS/style.css">
 <link rel="stylesheet" type="text/css" href="CSS/style_nav.css">
 <link rel="stylesheet" type="text/css" href="CSS/mediaTable.css">
@@ -39,11 +40,11 @@
             <!--alt=Learn&Talk></a></li>-->
         </ul>
         <ul class="hideNav">
-            <li><a href="#index.html">Расписание</a></li>
-            <li><a href="#">Ученики</a></li>
-            <li><a href="#">Штат</a></li>
-            <li><a href="calendar.html">Календарь</a></li>
-            <li><a href="#">Оплата</a></li>
+            <li><a href="list_shedule.html" id="NavSchedule">Расписание</a></li>
+            <li><a href="#" id="NavStudents">Ученики</a></li>
+            <li><a href="#" id="NavShtat">Штат</a></li>
+            <li><a href="calendar.html" id="Navcalendar">Календарь</a></li>
+            <li><a href="#" id="NavMoney">Оплата</a></li>
             <li class="nav-ul-logo">
                 <a href="index.html"><img id="imgLogo" src="Images/logo.png"
                                           width="9%" height="20%" alt=Learn&Talk>
@@ -56,12 +57,16 @@
 <main>
     <div id="mainDate"> </div>
     <div class="main-filter">
-        <form action="">
+        <form action="" onkeypress="if(event.keyCode == 13) return false">
             <div class="input-filter">
-                <input id="inputFilter" placeholder="Введите текст или выберите фильтр" type="text">
+                <input id="inputFilter" autocomplete="off" placeholder="Введите текст или выберите фильтр" type="text">
             </div>
             <div id="list-filter">
-                <div id="acordeon-filter"></div>
+                <div class="acordeon-wrapper">
+                    <div id="acordeon-filter"></div>
+                    <div id="acordeon-span"></div>
+                </div>
+
             </div>
         </form>
 
@@ -115,6 +120,14 @@
 
 <script src="Scripts/script.js"></script>
 <script src="Scripts/script_Date.js"></script>
-
+<script src="Scripts/jquery.details.js"></script>
+<script>
+    $(function() {
+        // Add conditional classname based on support
+        $('html').addClass($.fn.details.support ? 'details' : 'no-details');
+        // Emulate <details> where necessary and enable open/close event handlers
+        $('details').details();
+    });
+</script>
 </body>
 </html>
