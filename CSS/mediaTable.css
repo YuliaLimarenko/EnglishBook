@@ -21,5 +21,9 @@
     font-size: 10px; }
   table .StartTime td {
     font-size: 14px; } }
+@media (max-width: 705px) {
+  .ScheduleName {
+    top: -20px;
+    position: relative; } }
 
 /*# sourceMappingURL=mediaTable.css.map */

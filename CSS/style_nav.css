@@ -69,7 +69,7 @@ nav {
         list-style-type: none;
         text-decoration: none; }
       nav ul li a:hover {
-        color: #269376; }
+        color: #1ea921; }
     nav ul .nav-ul-logo {
       position: relative;
       top: 10px;
@@ -100,13 +100,13 @@ img {
     position: absolute;
     z-index: 300;
     text-align: right;
-    margin-right: 40px;
     background: white;
     margin-left: 45%;
     border-radius: 5px 5px; }
     .hideNav li {
       display: block;
-      padding: 5px; }
+      padding: 10px 5px;
+      font-size: 18px; }
     .hideNav li:last-child {
       border-top: 1px solid lightgrey; }
       .hideNav li:last-child #imgLogo {

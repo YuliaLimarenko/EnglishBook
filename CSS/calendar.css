@@ -61,6 +61,10 @@ html {
         padding: 5px;
         text-align: center;
         vertical-align: center; }
+  html nav #Navcalendar {
+    color: #1ea921; }
+  html main #inputFilter {
+    border: 1px solid grey; }
   html main .filterPeriod {
     position: relative;
     float: right;
@@ -75,7 +79,8 @@ html {
     html main .filterPeriod input {
       width: 20%;
       font-size: 14px;
-      text-align: center; }
+      text-align: center;
+      border: 1px solid grey; }
     html main .filterPeriod .brperiod {
       display: none; }
   html main .calendar td {
@@ -244,6 +249,10 @@ html {
     html main .filterPeriod .spanCal img {
       width: 4%; } }
 @media (max-width: 405px) {
+  html main .filterPeriod input {
+    width: 25%;
+    font-size: 11px; }
+
   html main .div-table-of-lessons .table-of-lessons td {
     padding: 1px; }
 
