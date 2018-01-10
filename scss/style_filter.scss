@@ -1,8 +1,8 @@
 /*# sourceMappingURL=style_filter.scss.map */
 
 .no-details details > * { display: none; }
-.no-details details > summary:before { float: left; width: 20px; content: '+ '; }
-.no-details details.open > summary:before { content: '–'; }
+.no-details details > summary:before { float: left; width: 20px; content: '► '; }
+.no-details details.open > summary:before { content: '▼'; }
 .no-details details summary { display: block; }
 
 .filterPeriod {
@@ -11,6 +11,7 @@
 .main-filter {
   #inputFilter {
     width: 220px;
+    padding-left:5%;
   }
   input::-webkit-input-placeholder {
     font-size: 12px;
@@ -26,16 +27,22 @@
   //top: 22%;
   z-index: 200;
   #list-filter {
-    width: 220px;
+    width: 234px;
     display: none;
     overflow: auto;
 
     //padding-left: 5px;
-    #acordeon-filter {
+    .acordeon-wrapper{
+
       background: white;
       border: 1px solid lightgray;
       padding: 10px 5px;
       color: black;
+      .spanNoInfo{
+        font-size:14px;
+        color: grey;
+
+      }
       ul {
         padding: 5px;
         outline: 0;

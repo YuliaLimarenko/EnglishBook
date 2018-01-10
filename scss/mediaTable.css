@@ -1,0 +1,29 @@
+@media (max-width: 992px) and (min-width: 338px) {
+  table .tr-day-of-week .span-name-shedule {
+    font-size: 16px; }
+  table .tr-name-of-class td {
+    font-size: 12px; }
+  table .StartTime td {
+    font-size: 14px; } }
+@media (min-width: 1200px) {
+  table .tr-scheduel-name .span-name-shedule {
+    font-size: 18px; }
+  table .tr-day-of-week .span-name-shedule {
+    font-size: 16px; }
+  table .tr-name-of-class td {
+    font-size: 16px; }
+  table .StartTime td {
+    font-size: 14px; } }
+@media (max-width: 337px) {
+  table .tr-day-of-week .span-name-shedule {
+    font-size: 16px; }
+  table .tr-name-of-class td {
+    font-size: 10px; }
+  table .StartTime td {
+    font-size: 14px; } }
+@media (max-width: 705px) {
+  .ScheduleName {
+    top: -20px;
+    position: relative; } }
+
+/*# sourceMappingURL=mediaTable.css.map */

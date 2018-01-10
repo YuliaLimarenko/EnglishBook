@@ -87,7 +87,7 @@ nav {
         text-decoration: none;
       }
       a:hover {
-        color: #269376;
+        color:#1ea921;
       }
 
     }
@@ -130,14 +130,16 @@ img {
     position: absolute;
     z-index: 300;
     text-align: right;
-    margin-right:40px;
+    //margin-right:40px;
     background: white;
     margin-left:45%;
     border-radius: 5px 5px;
 
     li{
       display: block;
-      padding:5px;
+      padding:10px 5px;
+      font-size:18px;
+
 }
     li:last-child{
       border-top: 1px solid lightgrey;

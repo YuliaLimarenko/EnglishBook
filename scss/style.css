@@ -49,6 +49,8 @@ table {
 body {
   overflow-y: scroll;
   padding-right: 10%; }
+  body #NavSchedule {
+    color: #1ea921; }
   body button {
     cursor: pointer; }
   body button:active, body :hover, body :focus {
@@ -62,8 +64,7 @@ body {
     margin-bottom: 10%;
     clear: both;
     position: relative;
-    top: 90px;
-    padding-left: 10%; }
+    top: 90px; }
     body .wrapper-table .ScheduleName {
       padding-bottom: 3%;
       display: flex;

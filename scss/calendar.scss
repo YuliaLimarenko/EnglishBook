@@ -82,11 +82,17 @@ html {
 
 
   }
-
+nav{
+  #Navcalendar{
+    color:#1ea921;
+  }
+}
   main {
 
 
-
+#inputFilter{
+  border: 1px solid grey;
+}
 
 
     .filterPeriod {
@@ -106,6 +112,7 @@ html {
         width: 20%;
         font-size: 14px;
         text-align: center;
+        border: 1px solid grey;
       }
       .brperiod {
         display: none;
@@ -405,6 +412,15 @@ html {
 }
 
 @media (max-width: 405px) {
+  html main .filterPeriod {
+
+    input {
+      width: 25%;
+      font-size:11px;
+    }
+
+
+  }
   html main .div-table-of-lessons .table-of-lessons td {
     padding: 1px;
   }
