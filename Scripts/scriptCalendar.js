@@ -1,3 +1,6 @@
+//todo: вылез баг с переключение последнего дня месяца влево 31 число
+//todo: поменять отображение в инпуте число-месяц
+
 function Obj_Calendar(Table, RollAble, Input) {
     this.Table = Table;
     this.RollAble = RollAble;
@@ -27,11 +30,13 @@ Obj_Calendar.prototype.ShowCalendar = function (DaysArray) {
 
     if (DaysArray.days) {
         dayPointer.Day = new Date(DaysArray.start_day);
+
     }
     else {
         dayPointer.SalectedDay = new Date(DaysArray.start_day);
         dayPointer.Day = new Date(DaysArray.start_day);
         dayPointer.Day.setDate(1);
+
     }
     // Clear table
     this.Table.innerHTML = "";
@@ -41,12 +46,15 @@ Obj_Calendar.prototype.ShowCalendar = function (DaysArray) {
         var DaysCounter = 0, CurrentMonth = dayPointer.Day.getMonth();
         (
 
+
             (DaysArray.days && DaysCounter < DaysArray.days.length) ||
             (DaysArray.payment && DaysCounter < DaysArray.payment.length) ||
             (!(DaysArray.days || DaysArray.payment) && CurrentMonth === dayPointer.Day.getMonth())
         );
+
         DaysCounter++
     ) {
+
         // Is it new month
         if (CurrentMonth !== dayPointer.Day.getMonth())
         // Yes, it is new month
@@ -106,9 +114,10 @@ Obj_Calendar.prototype._ShowHeadline = function (dayPointer) {
     var newYear = document.createElement('td');
     newYear.className = 'year';
     newYear.colSpan = 3;
-    newTr.append(newMonth, newYear);
     newMonth.innerHTML = MonthStr;
     newYear.innerHTML = YearStr;
+    newTr.appendChild(newMonth);
+    newTr.appendChild(newYear);
     if (this.RollAble) {
         newTr.className = 'calendarHat ';
 
@@ -121,7 +130,7 @@ Obj_Calendar.prototype._ShowHeadline = function (dayPointer) {
         newBtnRM.className = "btn-name MonthRight";
         newBtnRM.id = "MonthRight" + this._CalendarId;
         newBtnRM.dataset.lnkid = this._LnkId;
-        newBtnRM.innerHTML = '<img src="Images/arrowRight.png" width="10px" alt="arrow right">'
+        newBtnRM.innerHTML = '<img src="Images/arrowRight.png" width="10px" alt="arrow right">';
         var newBtnLY = document.createElement('button');
         newBtnLY.className = "btn-name btn-name YearLeft";
         newBtnLY.id = "YearLeft" + this._CalendarId;
@@ -132,21 +141,29 @@ Obj_Calendar.prototype._ShowHeadline = function (dayPointer) {
         newBtnRY.id = "YearRight" + this._CalendarId;
         newBtnRY.dataset.lnkid = this._LnkId;
         newBtnRY.innerHTML = '<img src="Images/arrowRight.png" width="10px" alt="arrow right">';
-
         var newSpanMonth = document.createElement('span');
         newSpanMonth.className = 'curMonth';
+
+
         newSpanMonth.innerHTML = MonthStr;
+        // console.log(MonthStr);
         var newSpanYear = document.createElement('span');
         newSpanYear.className = 'curYear';
         newSpanYear.innerHTML = YearStr;
         newMonth.innerHTML = "";
-        newMonth.append(newBtnLM, newSpanMonth, newBtnRM);
+        newMonth.appendChild(newBtnLM);
+        newMonth.appendChild(newSpanMonth);
+        newMonth.appendChild(newBtnRM);
         newYear.innerHTML = "";
-        newYear.append(newBtnLY, newSpanYear, newBtnRY);
-        newTr.append(newMonth, newYear);
+        newYear.appendChild(newBtnLY);
+        newYear.appendChild(newSpanYear);
+        newYear.appendChild(newBtnRY);
+
+        newTr.appendChild(newMonth);
+        newTr.appendChild(newYear);
     }
 
-    this.Table.append(newTr);
+    this.Table.appendChild(newTr);
 
     if (this.RollAble) {
 
@@ -160,13 +177,14 @@ Obj_Calendar.prototype._ShowHeadline = function (dayPointer) {
     // Create second line
     newTr = document.createElement('tr');
     newTr.setAttribute('class', 'dayweek');
-    newTr.innerHTML = '<td>ПН<td>ВТ<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс';
-    this.Table.append(newTr);
+    newTr.innerHTML = '<td>ПН<td>ВТ' +
+        '<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс';
+    this.Table.appendChild(newTr);
     // Create first rows
     dayPointer.dayTr = document.createElement('tr');
-    this.Table.append(dayPointer.dayTr);
+    this.Table.appendChild(dayPointer.dayTr);
     dayPointer.signTr = document.createElement('tr');
-    this.Table.append(dayPointer.signTr);
+    this.Table.appendChild(dayPointer.signTr);
     // Set dummy sells
     dayPointer.WeekDay = 0;
     var weekDay = dayPointer.Day.getWeekDay(false);
@@ -182,12 +200,11 @@ Obj_Calendar.prototype._AddNewDayCell = function (dayPointer, content, blanket) 
     // Start new week if needed
     if (dayPointer.WeekDay >= _WeekDaysNumber) {
         dayPointer.WeekDay = 0;
-        var newMainDivTd = document.createElement('span');
         dayPointer.dayTr = document.createElement('tr');
-        this.Table.append(dayPointer.dayTr);
-        this.Table.append(dayPointer.dayTr);
+        this.Table.appendChild(dayPointer.dayTr);
+        this.Table.appendChild(dayPointer.dayTr);
         dayPointer.signTr = document.createElement('tr');
-        this.Table.append(dayPointer.signTr);
+        this.Table.appendChild(dayPointer.signTr);
     }
     // Create date sell
     var dateTd = document.createElement('td');
@@ -197,7 +214,7 @@ Obj_Calendar.prototype._AddNewDayCell = function (dayPointer, content, blanket) 
         dateTd.dataset.lnkid = this._LnkId;
         var newSpan = document.createElement('span');
         newSpan.innerHTML = dayPointer.Day.getDate();
-        dateTd.append(newSpan);
+        dateTd.appendChild(newSpan);
 
         if (
             dayPointer.SalectedDay &&
@@ -209,7 +226,7 @@ Obj_Calendar.prototype._AddNewDayCell = function (dayPointer, content, blanket) 
             dateTd.innerHTML = '<span style="padding:10px 5px;font-weight: bold; color: #00ad27" >' + dateTd.innerHTML + '</span>';
         }
     }
-    dayPointer.dayTr.append(dateTd);
+    dayPointer.dayTr.appendChild(dateTd);
     dateTd.addEventListener('click', this._SetDay);
     // Get day image
     switch (content) {
@@ -239,7 +256,7 @@ Obj_Calendar.prototype._AddNewDayCell = function (dayPointer, content, blanket) 
     if (Img) {
         imageTd.innerHTML = '<img src = "' + Img + '" alt ="V" >';
     }
-    dayPointer.signTr.append(imageTd);
+    dayPointer.signTr.appendChild(imageTd);
     // Proceed to the next week days
     dayPointer.WeekDay++;
 };
@@ -559,12 +576,10 @@ $("#imgStartPeriod").click(function () {
     $('.calendar2-1').hide();
     $('.calendar2').show();
 
-    // Get date from input
-    var time = Date.parse(document.getElementById('StartPeriod').value);
-    ChoseStartDateCalendar._StartDate.setTime(time);
-    ChoseStartDateCalendar.ShowCalendar({start_day: time});
-
-
+    var time1 = makeTime('StartPeriod');
+    ChoseStartDateCalendar._StartDate.setTime(time1);
+    ChoseStartDateCalendar.ShowCalendar({start_day: time1});
+    CloseByEsc('.calendar2');
 });
 
 $("#imgFinishPeriod").click(function () {
@@ -573,12 +588,27 @@ $("#imgFinishPeriod").click(function () {
     $('.calendar2-1').show();
     $('.calendar2').hide();
 
-    // Get date from input
-    var time = Date.parse(document.getElementById('FinishPeriod').value);
-    ChoseStopDateCalendar._StartDate.setTime(time);
-    ChoseStopDateCalendar.ShowCalendar({start_day: time});
+    var time1 = makeTime('FinishPeriod');
+    ChoseStopDateCalendar._StartDate.setTime(time1);
+    ChoseStopDateCalendar.ShowCalendar({start_day: time1});
+    CloseByEsc('.calendar2-1');
 });
 
+function makeTime(selector) {
+    // Get date from input
+    var strTime = document.getElementById(selector).value;
+    var arrTime = strTime.split('.');
+    var b = arrTime[0] - 1;
+
+    var arrMonth = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug',
+        'Sept', 'Oct', 'Nov'];
+    arrTime.splice(0, 1, arrMonth[b]);
+    var strTimFun = arrTime.join(',');
+    var time1 = Date.parse(strTimFun);
+    return time1;
+
+}
+// lost of focus in input
 function LostFocus(selector) {
     document.getElementById(selector).onkeyup = function (e) {
         e = e || window.event;
@@ -595,11 +625,13 @@ function LostFocus(selector) {
     };
 }
 
+// close calendar by esc
 function CloseByEsc(selector) {
     document.onkeyup = function (e) {
         e = e || window.event;
         if (e.keyCode === 27) {
             $(selector).css("display", 'none');
+
 
         }
     };
@@ -607,10 +639,6 @@ function CloseByEsc(selector) {
 
 LostFocus('StartPeriod');
 LostFocus('FinishPeriod');
-
-CloseByEsc('.calendar2-1');
-CloseByEsc('.calendar2');
-
 
 //calendar2 situated under .filterPeriod always
 function PlaceCalendar2() {
@@ -693,12 +721,12 @@ function createTableLesson() {
 // count of all lessons
         countAmount = countAmount + counter;
 
-        newTr.append(newTdName);
-        newTr.append(newTdDone);
-        newTr.append(newTdUnDone);
-        newTr.append(newTdCounter);
+        newTr.appendChild(newTdName);
+        newTr.appendChild(newTdDone);
+        newTr.appendChild(newTdUnDone);
+        newTr.appendChild(newTdCounter);
 
-        document.getElementById('TableLessons').append(newTr);
+        document.getElementById('TableLessons').appendChild(newTr);
     }
     // adding of tr with all summary info
     var newTrAmount = document.createElement('tr');
@@ -717,12 +745,12 @@ function createTableLesson() {
     newTdAmountAmount.innerHTML = countAmount;
     newTdAmountAmount.style.fontWeight = 'bold';
 
-    newTrAmount.append(newTdAmountName);
-    newTrAmount.append(newTdAmountDone);
-    newTrAmount.append(newTdAmountUnDone);
-    newTrAmount.append(newTdAmountAmount);
+    newTrAmount.appendChild(newTdAmountName);
+    newTrAmount.appendChild(newTdAmountDone);
+    newTrAmount.appendChild(newTdAmountUnDone);
+    newTrAmount.appendChild(newTdAmountAmount);
 
-    document.getElementById('TableLessons').append(newTrAmount);
+    document.getElementById('TableLessons').appendChild(newTrAmount);
 }
 
 
@@ -734,6 +762,7 @@ function alignCenter(elem) {
         top: ($(window).height() - elem.height()) / 2 + 'px'
     })
 }
+
 document.getElementById('close').addEventListener('click', Hidepopup);
 
 function Hidepopup() {

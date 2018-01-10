@@ -1,11 +1,4 @@
-// Set append for IE
-// if (!Element.append) {
-//     Element.prototype.append = function () {
-//         for (i = 0; i < arguments.length; i++) {
-//             $(arguments[i]).appendTo(this);
-//         }
-//     }
-// }
+//todo: группы в фильтре
 
 var dataArray = [
     {
@@ -120,39 +113,50 @@ var dataArray = [
 ];
 
 
+$(document).ready(function () {
+    document.getElementById('inputFilter').onkeydown = function (e) {
+        e = e || window.event;
+        if (e.keyCode === 27) {
+            document.getElementById('list-filter').style.display='none';
 
-$( document ).ready(function() {
+
+
+        }
+    };
+    // CloseByEscape('#list-filter');
     placeOfFilter();
 
     var temp_date = new Date();
-    var  day = temp_date.getDate();
+    var day = temp_date.getDate();
     var month = temp_date.getMonth() + 1;
     var year = temp_date.getFullYear();
     if (day < 10) {
         day = "0" + day;
     }
-    if (month <10) {
+    if (month < 10) {
         month = "0" + month;
     }
     document.getElementById('mainDate').innerHTML =
-        'Сегодня'+' '+' ' + day + "." + month + "." + year;
+        'Сегодня' + ' ' + ' ' + day + "." + month + "." + year;
 
-    if($("#StartPeriod").length) {
-        document.getElementById('StartPeriod').value = month+'.'+day+'.'+year;
+    if ($("#StartPeriod").length) {
+        document.getElementById('StartPeriod').value = month + '.' + day + '.' + year;
     }
-    if($("#FinishPeriod").length) {
-        document.getElementById('FinishPeriod').value = month+'.'+day+'.'+year;
+    if ($("#FinishPeriod").length) {
+        document.getElementById('FinishPeriod').value = month + '.' + day + '.' + year;
     }
 
 
     function ShowElement(element, parentDiv) {
+        // var ch = element.children;
+
         if (!element.children)
+        // if (ch === undefined)
         {
-            parentDiv.append(element.name);
+            $(parentDiv).append(element.name);
 
         }
-        else
-        {
+        else {
 
             var newDetails = document.createElement('details');
 
@@ -162,55 +166,125 @@ $( document ).ready(function() {
             }
             newDetails.innerHTML =
                 '<summary >' + element.name + '</summary>';
-            parentDiv.append(newDetails);
+            parentDiv.appendChild(newDetails);
 
             var newUlChildrens = document.createElement('ul');
-            newUlChildrens.style='padding-left:20px';
-            newUlChildrens.className='ul';
+            newUlChildrens.style = 'padding-left:20px';
+            newUlChildrens.className = 'ul';
 
-            newDetails.append(newUlChildrens);
+            newDetails.appendChild(newUlChildrens);
 
 
-
-            for(var i= 0; i<element.children.length;i++) {
+            for (var i = 0; i < element.children.length; i++) {
 
                 var newLiChildrens = document.createElement('li');
-
-
-                newUlChildrens.append(newLiChildrens);
+                newLiChildrens.className = 'ChildrenLi';
+                newUlChildrens.appendChild(newLiChildrens);
 
                 ShowElement(element.children[i], newLiChildrens);
+
+            }
+
+// variable for convenience
+            var inp = document.getElementById('inputFilter');
+
+//put value from list to input and send to server
+
+            $('.ChildrenLi').click(function PutMainValue() {
+                var curLi = this.textContent;
+                inp.value = curLi;
+                document.getElementById('list-filter').style.display = 'none';
+                CallArrayFilter();
+
+//send value from list to server
+
+
+            });
+
+
+//function for call new array after filter's operation
+            function CallArrayFilter() {
+                let currVal = inp.value;
+                var arrayAfterChange = AutocomplitFilter(dataArray, currVal);
+
+                ShowList(arrayAfterChange, document.getElementById('acordeon-filter'));
+                inp.style.background = 'none';
+
+            }
+
+//style and data for list when mouseout
+            function MouseOut() {
+                let currVal = inp.value;
+                document.getElementById('list-filter').onmouseout = function () {
+                    inp.style.background = 'none';
+                    inp.value = currVal;
+                };
+            }
+
+
+            inp.onfocus = function () {
+                MouseOut();
+            };
+
+            inp.onkeyup = function () {
+                CallArrayFilter();
+                MouseOut();
+            };
+
+//style for list when mouseover
+            $('.ChildrenLi').mouseover(function () {
+                var curLi = this.textContent;
+                inp.value = curLi;
+                inp.style.background = '#f2f2f2';
+            });
+
+        }
+
+    }
+
+    function ShowList(listArray, container) {
+        if (listArray[0] === false) {
+            var newSpan = document.createElement('span');
+            newSpan.className = 'spanNoInfo';
+            document.getElementById('acordeon-filter').style.display = 'none';
+
+
+            newSpan.innerHTML = 'По вашему ' +
+                'запросу информация не найдена';
+            document.getElementById('acordeon-span').appendChild(newSpan);
+            document.getElementById('inputFilter').onkeyup = function (e) {
+                e = e || window.event;
+                if (e.keyCode === 8) {
+                    document.getElementById('acordeon-filter').style.display = 'block';
+                    document.getElementById('acordeon-span').style.display = 'none';
+
+                }
 
 
             }
         }
-    }
+        else {
+            // Clear container
+            container.innerHTML = '';
+            container.className = 'container';
+            //
 
+            for (var i = 0; i < listArray.length; i++) {
 
-
-
-    function ShowList(listArray,container)
-    {
-        // Clear container
-        container.innerHTML = '';
-        //
-
-        for (var i=0;i<listArray.length;i++)
-        {
-
-            ShowElement(listArray[i],container)
+                ShowElement(listArray[i], container)
+            }
         }
     }
 
-    ShowList(dataArray,document.getElementById('acordeon-filter'));
+    ShowList(arrayByFilter, document.getElementById('acordeon-filter'));
 
 
     var winHeight = window.innerHeight;
     $('#list-filter').css({
-        height:winHeight-250
+        height: winHeight - 250
     })
 
-   });
+});
 
 
 $("#inputFilter").click(function () {
@@ -220,29 +294,45 @@ $("#inputFilter").click(function () {
 
 
 function placeOfFilter() {
-        var TopMainDate = $('#mainDate').offset();
-        $('.main-filter').css({
-            top: TopMainDate.top+40,
-            left: TopMainDate.left-220
-        });
+    var TopMainDate = $('#mainDate').offset();
+    $('.main-filter').css({
+        top: TopMainDate.top + 40,
+        left: TopMainDate.left - 220
+    });
 
 
 }
-          $(window).resize(
-             function () {
-                //placeOfFilter();
-                 var TopMainDate = $('#mainDate').offset();
-                 $('.main-filter').css({
-                     top: TopMainDate.top+40,
-                     left: TopMainDate.left-90
-                 });
-            }
-        );
 
+$(window).resize(
+    function () {
+        //placeOfFilter();
+        var TopMainDate = $('#mainDate').offset();
+        $('.main-filter').css({
+            top: TopMainDate.top + 40,
+            left: TopMainDate.left - 90
+        });
+    }
+);
+
+//show mobile menu
 document.getElementById('gumbMob').addEventListener('click', showMobMenu);
 
 function showMobMenu() {
     $('.hideNav').slideToggle('fast');
 
 }
+
+// function, witch return array after filter's operations
+function AutocomplitFilter(array, value) {
+    //todo: указать правильные условия для возврата false
+    if (value == 1) {
+        return [false, array];
+    } else {
+        return array;
+    }
+
+}
+
+var arrayByFilter = AutocomplitFilter(dataArray,
+    document.getElementById('inputFilter').value);
 

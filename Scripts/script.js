@@ -1,13 +1,13 @@
 var elem;
 
 // Set append for IE
-// if (!Element.append) {
-//     Element.prototype.append = function () {
-//         for (i = 0; i < arguments.length; i++) {
-//             $(arguments[i]).appendTo(this);
-//         }
-//     }
-// }
+if (!Element.append) {
+    Element.prototype.append = function () {
+        for (i = 0; i < arguments.length; i++) {
+            $(arguments[i]).appendTo(this);
+        }
+    }
+}
 
 var Schedule = {
     Name: "Schedule 1",
@@ -1368,3 +1368,25 @@ function BGandBorderLessonName() {
             'border-bottom:2px solid #55a4e0';
     }
 }
+
+
+
+
+
+
+
+
+
+
+// function CallArrayFilter() {
+//     var currVal = inp.value;
+//     console.log(currVal);
+//     var arrayAfterChange = AutocomplitFilter(dataArray, currVal);
+//     ShowList(arrayAfterChange, document.getElementById('acordeon-filter'));
+//
+//     //style and data for list when mouseout
+//     $('#list-filter').mouseout(function () {
+//         inp.style.background = 'none';
+//         inp.value = currVal;
+//     });
+// }
