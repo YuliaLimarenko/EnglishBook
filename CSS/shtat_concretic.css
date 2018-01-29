@@ -1,0 +1,106 @@
+html {
+  width: 100%;
+  background: #dedfe0;
+  height: 100vh; }
+
+.wrapper-private-info {
+  margin-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%; }
+  .wrapper-private-info .teacher-status {
+    display: flex;
+    flex-direction: row; }
+    .wrapper-private-info .teacher-status #infotittle {
+      width: 90%;
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 5%;
+      margin-left: 10%; }
+    .wrapper-private-info .teacher-status .status {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end; }
+      .wrapper-private-info .teacher-status .status .work {
+        text-align: right; }
+        .wrapper-private-info .teacher-status .status .work img {
+          cursor: pointer;
+          width: 15%; }
+      .wrapper-private-info .teacher-status .status .unwork {
+        margin-left: 2%; }
+        .wrapper-private-info .teacher-status .status .unwork img {
+          cursor: pointer;
+          width: 15%; }
+  .wrapper-private-info .info {
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    width: 100%; }
+    .wrapper-private-info .info .container-photo {
+      width: 40%;
+      text-align: center; }
+      .wrapper-private-info .info .container-photo #preview {
+        height: 180px;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+      .wrapper-private-info .info .container-photo .img-thumbnail {
+        border: 1px solid grey;
+        height: 180px; }
+    .wrapper-private-info .info .mainfield {
+      width: 60%;
+      text-align: center; }
+      .wrapper-private-info .info .mainfield .field {
+        padding: 2px;
+        margin-bottom: 2%;
+        width: 100%;
+        display: flex;
+        flex-direction: row; }
+        .wrapper-private-info .info .mainfield .field input {
+          padding: 2px;
+          background: #dedfe0;
+          border: 1px solid darkslategrey;
+          width: 50%; }
+        .wrapper-private-info .info .mainfield .field label {
+          width: 30%;
+          text-align: left; }
+
+@media (max-width: 908px) {
+  .wrapper-private-info .teacher-status #infotittle {
+    font-size: 16px; }
+  .wrapper-private-info .info .container-photo {
+    width: 50%; } }
+@media (max-width: 705px) {
+  .wrapper-private-info {
+    padding-left: 0;
+    padding-right: 0; }
+    .wrapper-private-info .teacher-status #infotittle {
+      width: 100%; }
+    .wrapper-private-info .teacher-status .status .work img, .wrapper-private-info .teacher-status .status .unwork img {
+      width: 30%; }
+    .wrapper-private-info .info {
+      flex-direction: column; }
+      .wrapper-private-info .info .container-photo {
+        margin-top: -5%;
+        width: 100%; }
+        .wrapper-private-info .info .container-photo .img-thumbnail {
+          height: 130px; }
+      .wrapper-private-info .info #private-info {
+        margin-top: 5%;
+        width: 100%; }
+        .wrapper-private-info .info #private-info .field {
+          padding-left: 10%; } }
+@media (max-width: 372px) {
+  main {
+    padding-bottom: 10%; }
+    main .wrapper-private-info .teacher-status #infotittle {
+      width: 120%;
+      font-size: 13px; }
+    main .wrapper-private-info .info .mainfield .field {
+      flex-direction: column; }
+      main .wrapper-private-info .info .mainfield .field input {
+        width: 80%; }
+      main .wrapper-private-info .info .mainfield .field label {
+        width: 80%; } }
+
+/*# sourceMappingURL=shtat_concretic.css.map */

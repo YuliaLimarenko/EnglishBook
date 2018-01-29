@@ -1,0 +1,76 @@
+@charset "UTF-8";
+/*# sourceMappingURL=style_filter.scss.map */
+.no-details details > * {
+  display: none; }
+
+.no-details details > summary:before {
+  float: left;
+  width: 20px;
+  content: '► '; }
+
+.no-details details.open > summary:before {
+  content: '▼'; }
+
+.no-details details summary {
+  display: block; }
+
+.filterPeriod {
+  margin-top: 5%; }
+
+.main-filter {
+  position: absolute;
+  z-index: 200; }
+  .main-filter #inputFilter {
+    width: 220px;
+    padding-left: 5%; }
+  .main-filter input::-webkit-input-placeholder {
+    font-size: 12px;
+    text-align: center; }
+  .main-filter input:-moz-placeholder {
+    font-size: 12px;
+    text-align: center; }
+  .main-filter #list-filter {
+    width: 234px;
+    display: none;
+    overflow: auto; }
+    .main-filter #list-filter .acordeon-wrapper {
+      background: white;
+      border: 1px solid lightgray;
+      padding: 10px 5px;
+      color: black; }
+      .main-filter #list-filter .acordeon-wrapper .spanNoInfo {
+        font-size: 14px;
+        color: grey; }
+      .main-filter #list-filter .acordeon-wrapper ul {
+        padding: 5px;
+        outline: 0;
+        outline-offset: 0; }
+      .main-filter #list-filter .acordeon-wrapper ul:focus, .main-filter #list-filter .acordeon-wrapper :active, .main-filter #list-filter .acordeon-wrapper :hover {
+        outline: 0;
+        outline-offset: 0; }
+      .main-filter #list-filter .acordeon-wrapper summary:focus, .main-filter #list-filter .acordeon-wrapper summary:active {
+        outline-color: white;
+        border: none; }
+      .main-filter #list-filter .acordeon-wrapper ul li {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        font-size: 16px; }
+      .main-filter #list-filter .acordeon-wrapper ul li:hover {
+        cursor: default;
+        border: 1px solid dodgerblue;
+        border-radius: 5px 5px; }
+      .main-filter #list-filter .acordeon-wrapper details summary {
+        font-size: 16px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        color: black; }
+
+@media (max-width: 1200px) {
+  .filterPeriod {
+    margin-top: 8%; } }
+@media (max-width: 548px) {
+  .filterPeriod {
+    margin-top: 14%; } }
+
+/*# sourceMappingURL=style_filter.scss.map */

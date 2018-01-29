@@ -1,0 +1,42 @@
+html {
+  overflow-y: scroll; }
+
+#NavShtat {
+  color: #1ea921; }
+
+main .wrapperTable {
+  margin-top: 8%;
+  display: flex;
+  justify-content: center; }
+  main .wrapperTable tr td {
+    border: 1px solid black;
+    padding: 10px 5px;
+    width: calc(100% / 3); }
+    main .wrapperTable tr td a {
+      text-decoration: none;
+      color: black;
+      font-size: 14px; }
+  main .wrapperTable tr td:not(.Teachername) {
+    text-align: center; }
+  main .wrapperTable tr #choosePeriod input {
+    width: 20%; }
+  main .wrapperTable tr #choosePeriod .calendarDiv {
+    margin-left: 210px;
+    margin-top: 110px; }
+  main .wrapperTable tr #choosePeriod td {
+    padding: 3px 0 0 0; }
+
+@media print {
+  .navPrint {
+    display: none; }
+
+  .navMobile {
+    display: none; }
+
+  .main-filter {
+    display: none; } }
+@media (max-width: 576px) {
+  main .wrapperTable tr td:first-child {
+    width: 70%; } }
+
+/*# sourceMappingURL=shtat.css.map */
