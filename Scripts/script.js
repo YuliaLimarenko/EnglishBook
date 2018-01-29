@@ -9,6 +9,18 @@ if (!Element.append) {
     }
 }
 
+// var ScheduleEmpty = {
+//     Name: "EmptySchedule",
+//     Days: [
+//         // days of week
+//         [], [], [], [], [], [], []
+//     ]
+//
+// };
+
+
+
+
 var Schedule = {
     Name: "Schedule 1",
     Days: [
@@ -634,9 +646,9 @@ var RoomPointers = [
 ];
 
 
-$(document).ready(
-    function () {
+$(document).ready( function () {
 
+        SituateElement('#btnGoTo', '#mainDate');
 
         // creating and adding main div for name scchedule
         var SchNameCell = document.createElement('div');
@@ -662,6 +674,7 @@ $(document).ready(
 
         SchName.innerHTML = '<label><input type="text" id="inputScheduleName"  ></label>';
         document.getElementById('inputScheduleName').value = Schedule.Name;
+
 
 
         SchNameArRight.innerHTML = '<button class="btn-name" id="btn-name-Right">' +
@@ -1237,7 +1250,6 @@ function onStartTimeInputChange() {
     var arrTime = newStartTime.split(':');
     var hour = arrTime[0];
     var min = arrTime[1];
-    console.log(arrTime);
     Schedule.Days[Day][Room].Lessons[Time].Start.hour = hour;
     Schedule.Days[Day][Room].Lessons[Time].Start.min = min;
 }
@@ -1371,22 +1383,9 @@ function BGandBorderLessonName() {
 
 
 
-
-
-
-
-
-
-
-// function CallArrayFilter() {
-//     var currVal = inp.value;
-//     console.log(currVal);
-//     var arrayAfterChange = AutocomplitFilter(dataArray, currVal);
-//     ShowList(arrayAfterChange, document.getElementById('acordeon-filter'));
-//
-//     //style and data for list when mouseout
-//     $('#list-filter').mouseout(function () {
-//         inp.style.background = 'none';
-//         inp.value = currVal;
-//     });
-// }
+function SituateElement(element1, element2) {
+    var elem2offset = $(element2).offset();
+    $(element1).css({
+        left: elem2offset.left-1070
+    })
+}

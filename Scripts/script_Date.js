@@ -3,6 +3,8 @@
 var dataArray = [
     {
         name: "Учителя",
+        // true - for opened UL
+        // false - for closed UL
         state: true,
         children: [
             {
@@ -117,12 +119,12 @@ $(document).ready(function () {
     document.getElementById('inputFilter').onkeydown = function (e) {
         e = e || window.event;
         if (e.keyCode === 27) {
-            document.getElementById('list-filter').style.display='none';
-
+            document.getElementById('list-filter').style.display = 'none';
 
 
         }
     };
+
     // CloseByEscape('#list-filter');
     placeOfFilter();
 
@@ -139,19 +141,10 @@ $(document).ready(function () {
     document.getElementById('mainDate').innerHTML =
         'Сегодня' + ' ' + ' ' + day + "." + month + "." + year;
 
-    if ($("#StartPeriod").length) {
-        document.getElementById('StartPeriod').value = month + '.' + day + '.' + year;
-    }
-    if ($("#FinishPeriod").length) {
-        document.getElementById('FinishPeriod').value = month + '.' + day + '.' + year;
-    }
-
 
     function ShowElement(element, parentDiv) {
-        // var ch = element.children;
 
         if (!element.children)
-        // if (ch === undefined)
         {
             $(parentDiv).append(element.name);
 
@@ -178,6 +171,9 @@ $(document).ready(function () {
             for (var i = 0; i < element.children.length; i++) {
 
                 var newLiChildrens = document.createElement('li');
+                //var newSpanChild = document.createElement('span');
+                // newSpanChild.className = 'spanChild';
+                //newLiChildrens.appendChild(newSpanChild);
                 newLiChildrens.className = 'ChildrenLi';
                 newUlChildrens.appendChild(newLiChildrens);
 
@@ -204,9 +200,8 @@ $(document).ready(function () {
 
 //function for call new array after filter's operation
             function CallArrayFilter() {
-                let currVal = inp.value;
-                var arrayAfterChange = AutocomplitFilter(dataArray, currVal);
-
+                var currVal = inp.value;
+                var arrayAfterChange = AutoCompleteFilter(dataArray, currVal);
                 ShowList(arrayAfterChange, document.getElementById('acordeon-filter'));
                 inp.style.background = 'none';
 
@@ -214,10 +209,11 @@ $(document).ready(function () {
 
 //style and data for list when mouseout
             function MouseOut() {
-                let currVal = inp.value;
+                var currVal = inp.value;
                 document.getElementById('list-filter').onmouseout = function () {
                     inp.style.background = 'none';
                     inp.value = currVal;
+
                 };
             }
 
@@ -226,9 +222,15 @@ $(document).ready(function () {
                 MouseOut();
             };
 
-            inp.onkeyup = function () {
-                CallArrayFilter();
-                MouseOut();
+            inp.onkeyup = function (e) {
+                e = e || window.event;
+                if (e.keyCode === 38 || e.keyCode === 40) {
+                    //todo: другую функцию, переключать список
+                    $('#list-filter').slideToggle('normal');
+                } else {
+                    CallArrayFilter();
+                    MouseOut();
+                }
             };
 
 //style for list when mouseover
@@ -243,25 +245,9 @@ $(document).ready(function () {
     }
 
     function ShowList(listArray, container) {
-        if (listArray[0] === false) {
-            var newSpan = document.createElement('span');
-            newSpan.className = 'spanNoInfo';
+        if (!listArray.length) {
             document.getElementById('acordeon-filter').style.display = 'none';
-
-
-            newSpan.innerHTML = 'По вашему ' +
-                'запросу информация не найдена';
-            document.getElementById('acordeon-span').appendChild(newSpan);
-            document.getElementById('inputFilter').onkeyup = function (e) {
-                e = e || window.event;
-                if (e.keyCode === 8) {
-                    document.getElementById('acordeon-filter').style.display = 'block';
-                    document.getElementById('acordeon-span').style.display = 'none';
-
-                }
-
-
-            }
+            document.getElementById('acordeon-span').style.display = 'block';
         }
         else {
             // Clear container
@@ -273,6 +259,9 @@ $(document).ready(function () {
 
                 ShowElement(listArray[i], container)
             }
+
+            document.getElementById('acordeon-filter').style.display = 'block';
+            document.getElementById('acordeon-span').style.display = 'none';
         }
     }
 
@@ -293,24 +282,9 @@ $("#inputFilter").click(function () {
 });
 
 
-function placeOfFilter() {
-    var TopMainDate = $('#mainDate').offset();
-    $('.main-filter').css({
-        top: TopMainDate.top + 40,
-        left: TopMainDate.left - 220
-    });
-
-
-}
-
 $(window).resize(
     function () {
-        //placeOfFilter();
-        var TopMainDate = $('#mainDate').offset();
-        $('.main-filter').css({
-            top: TopMainDate.top + 40,
-            left: TopMainDate.left - 90
-        });
+        placeOfFilter(90);
     }
 );
 
@@ -322,17 +296,93 @@ function showMobMenu() {
 
 }
 
-// function, witch return array after filter's operations
-function AutocomplitFilter(array, value) {
-    //todo: указать правильные условия для возврата false
-    if (value == 1) {
-        return [false, array];
-    } else {
-        return array;
+/**
+ * Returns array filtered by searchFor
+ *
+ * @param {Array} dataArray
+ * @param {string} searchFor
+ * @return {Array}
+ */
+function AutoCompleteFilter(dataArray, searchFor) {
+
+    return GetFiltered(dataArray, searchFor.trim());
+
+    /**
+     *
+     * @param {Array} levelArray
+     * @param {string} searchFor
+     * @return {Array}
+     */
+    function GetFiltered(levelArray, searchFor) {
+        var resultArray = [];
+        if (levelArray) {
+            for (var i = 0; i < levelArray.length; i++) {
+                var childrenArray = GetFiltered(levelArray[i].children, searchFor);
+                var ResultName = Compliance(levelArray[i].name, searchFor);
+                if (childrenArray.length && !ResultName) {
+                    ResultName = levelArray[i].name;
+                }
+                if (ResultName) {
+                    var item = {
+                        name: ResultName
+                    };
+                    if (levelArray[i].children) {
+                        item.children = childrenArray;
+                        item.state = levelArray[i].state;
+                    }
+                    resultArray.push(item);
+                }
+            }
+        }
+        return resultArray;
     }
+
+    /**
+     * Returns name with selected pattern if found else null
+     * @param {string} name
+     * @param {string} pattern
+     * @return {string|null}
+     */
+    function Compliance(name, pattern) {
+        var Result = null;
+        if (pattern) {
+            var position = name.toLowerCase().search(pattern.toLowerCase());
+            if (~position) {
+                Result = name.substr(0, position) +
+                    '<b style = "font-weight:bold;color:blue">' +
+                    name.substr(position, pattern.length) +
+                    '</b>' +
+                    name.substr(position + pattern.length);
+            }
+        }
+        else {
+            Result = name;
+        }
+        return Result
+    }
+
 
 }
 
-var arrayByFilter = AutocomplitFilter(dataArray,
+
+var arrayByFilter = AutoCompleteFilter(dataArray,
     document.getElementById('inputFilter').value);
 
+
+function placeOfFilter(leftCount) {
+    var TopMainDate = $('#mainDate').offset();
+    $('.main-filter').css({
+        left: TopMainDate.left - leftCount
+    });
+    if (screen.width <= '704' || document.body.clientWidth <= '704') {
+        $('.main-filter').css({
+            top: TopMainDate.top + 20
+        });
+    }
+    else {
+        $('.main-filter').css({
+            top: TopMainDate.top + 40
+        });
+    }
+
+}
