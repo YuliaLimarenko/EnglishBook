@@ -65,24 +65,6 @@ html {
     color: #1ea921; }
   html main #inputFilter {
     border: 1px solid grey; }
-  html main .filterPeriod {
-    position: relative;
-    float: right;
-    padding-top: 1%;
-    clear: both;
-    left: 140px; }
-    html main .filterPeriod .spanCal {
-      position: relative;
-      top: 4px; }
-      html main .filterPeriod .spanCal img {
-        cursor: pointer; }
-    html main .filterPeriod input {
-      width: 20%;
-      font-size: 14px;
-      text-align: center;
-      border: 1px solid grey; }
-    html main .filterPeriod .brperiod {
-      display: none; }
   html main .calendar td {
     width: 50px; }
   html main .calendar {
@@ -93,9 +75,9 @@ html {
     flex-direction: row;
     margin-bottom: 5%;
     width: 100%; }
-    html main .calendar .calendar1 {
+    html main .calendar .calendar-wrapper {
       width: 70%; }
-      html main .calendar .calendar1 #calendar1 {
+      html main .calendar .calendar-wrapper #calendar {
         margin-left: 45%; }
     html main .calendar td {
       border-right: 1px solid #032c6d;
@@ -156,53 +138,6 @@ html {
         vertical-align: middle;
         color: #032c6d; }
 
-.calendar2, .calendar2-1 {
-  padding-bottom: 1%;
-  display: none;
-  position: absolute;
-  margin-top: -30px;
-  background: white;
-  border: 1px solid lightgray;
-  box-shadow: 7px 7px 10px -7px rgba(0, 0, 0, 0.5);
-  z-index: 10; }
-  .calendar2 #calendar2 .tdDate, .calendar2 #calendar2-1 .tdDate, .calendar2-1 #calendar2 .tdDate, .calendar2-1 #calendar2-1 .tdDate {
-    background-image: url("../Images/krug4.png");
-    background-repeat: no-repeat;
-    -webkit-background-size: contain;
-    background-size: contain;
-    background-position: center bottom; }
-  .calendar2 #calendar2 .calendarHat .month, .calendar2 #calendar2 .calendarHat .year, .calendar2 #calendar2-1 .calendarHat .month, .calendar2 #calendar2-1 .calendarHat .year, .calendar2-1 #calendar2 .calendarHat .month, .calendar2-1 #calendar2 .calendarHat .year, .calendar2-1 #calendar2-1 .calendarHat .month, .calendar2-1 #calendar2-1 .calendarHat .year {
-    padding-top: 1%;
-    padding-bottom: 2%;
-    font-size: 2.2vh;
-    text-transform: lowercase; }
-    .calendar2 #calendar2 .calendarHat .month .btn-name, .calendar2 #calendar2 .calendarHat .year .btn-name, .calendar2 #calendar2-1 .calendarHat .month .btn-name, .calendar2 #calendar2-1 .calendarHat .year .btn-name, .calendar2-1 #calendar2 .calendarHat .month .btn-name, .calendar2-1 #calendar2 .calendarHat .year .btn-name, .calendar2-1 #calendar2-1 .calendarHat .month .btn-name, .calendar2-1 #calendar2-1 .calendarHat .year .btn-name {
-      border: none;
-      background: none;
-      outline: none;
-      cursor: pointer; }
-      .calendar2 #calendar2 .calendarHat .month .btn-name img, .calendar2 #calendar2 .calendarHat .year .btn-name img, .calendar2 #calendar2-1 .calendarHat .month .btn-name img, .calendar2 #calendar2-1 .calendarHat .year .btn-name img, .calendar2-1 #calendar2 .calendarHat .month .btn-name img, .calendar2-1 #calendar2 .calendarHat .year .btn-name img, .calendar2-1 #calendar2-1 .calendarHat .month .btn-name img, .calendar2-1 #calendar2-1 .calendarHat .year .btn-name img {
-        width: 10px;
-        outline: none; }
-  .calendar2 #calendar2 .dayweek td, .calendar2 #calendar2-1 .dayweek td, .calendar2-1 #calendar2 .dayweek td, .calendar2-1 #calendar2-1 .dayweek td {
-    padding-top: 0;
-    padding-bottom: 0;
-    font-size: 2vh; }
-  .calendar2 #calendar2 td, .calendar2 #calendar2-1 td, .calendar2-1 #calendar2 td, .calendar2-1 #calendar2-1 td {
-    height: 25px;
-    width: 30px;
-    font-size: 2.3vh; }
-  .calendar2 #calendar2 .tdNumbers span, .calendar2 #calendar2-1 .tdNumbers span, .calendar2-1 #calendar2 .tdNumbers span, .calendar2-1 #calendar2-1 .tdNumbers span {
-    padding-left: 2px;
-    padding-right: 2px;
-    cursor: default; }
-  .calendar2 #calendar2 .curDay, .calendar2 #calendar2-1 .curDay, .calendar2-1 #calendar2 .curDay, .calendar2-1 #calendar2-1 .curDay {
-    cursor: default; }
-  .calendar2 #calendar2 .tdNumbers span:hover, .calendar2 #calendar2-1 .tdNumbers span:hover, .calendar2-1 #calendar2 .tdNumbers span:hover, .calendar2-1 #calendar2-1 .tdNumbers span:hover {
-    border: 1px solid #00ad27; }
-  .calendar2 #calendar2 .empty, .calendar2 #calendar2-1 .empty, .calendar2-1 #calendar2 .empty, .calendar2-1 #calendar2-1 .empty {
-    display: none; }
-
 @media (max-width: 992px) {
   html main .calendar .calendarHat td {
     font-size: 16px; }
@@ -233,26 +168,8 @@ html {
     text-align: left; }
   html .div-table-of-lessons .table-of-lessons {
     font-size: 14px;
-    padding-left: 10%; }
-
-  html main .filterPeriod {
-    left: 0;
-    padding-right: 5%;
-    text-align: center;
-    top: 10px; }
-    html main .filterPeriod .spanChoose {
-      bottom: 20%; }
-      html main .filterPeriod .spanChoose .brperiod {
-        display: inline; }
-    html main .filterPeriod input {
-      width: 30%; }
-    html main .filterPeriod .spanCal img {
-      width: 4%; } }
+    padding-left: 10%; } }
 @media (max-width: 405px) {
-  html main .filterPeriod input {
-    width: 25%;
-    font-size: 11px; }
-
   html main .div-table-of-lessons .table-of-lessons td {
     padding: 1px; }
 
@@ -274,10 +191,7 @@ html {
   html .main .info-about-calendar img {
     width: 10px; }
 
-  html main .filterPeriod .spanCal img {
-    width: 6%; }
-
-  html main .calendar .calendar1 {
+  html main .calendar .calendar-wrapper {
     margin-left: -15%; } }
 
 /*# sourceMappingURL=calendar.css.map */

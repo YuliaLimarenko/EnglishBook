@@ -1,17 +1,31 @@
 /*# sourceMappingURL=style_filter.scss.map */
 
-.no-details details > * { display: none; }
-.no-details details > summary:before { float: left; width: 20px; content: '► '; }
-.no-details details.open > summary:before { content: '▼'; }
-.no-details details summary { display: block; }
+.no-details details > * {
+  display: none;
+}
+
+.no-details details > summary:before {
+  float: left;
+  width: 20px;
+  content: '► ';
+}
+
+.no-details details.open > summary:before {
+  content: '▼';
+}
+
+.no-details details summary {
+  display: block;
+}
 
 .filterPeriod {
   margin-top: 5%;
 }
+
 .main-filter {
   #inputFilter {
     width: 220px;
-    padding-left:5%;
+    padding-left: 5%;
   }
   input::-webkit-input-placeholder {
     font-size: 12px;
@@ -23,23 +37,20 @@
   }
 
   position: absolute;
-  //left: 74%;
-  //top: 22%;
   z-index: 200;
   #list-filter {
     width: 234px;
     display: none;
     overflow: auto;
 
-    //padding-left: 5px;
-    .acordeon-wrapper{
+    .acordeon-wrapper {
 
       background: white;
       border: 1px solid lightgray;
       padding: 10px 5px;
       color: black;
-      .spanNoInfo{
-        font-size:14px;
+      .spanNoInfo {
+        font-size: 14px;
         color: grey;
 
       }
@@ -60,8 +71,8 @@
 
       ul li {
         padding-top: 5px;
-        padding-bottom:5px;
-        padding-left:5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
         font-size: 16px;
 
       }
@@ -79,16 +90,12 @@
       //}
 
       details {
-        //padding-top: 5px;
         summary {
           font-size: 16px;
-         // background: #d3d3e8;
           padding-top: 3px;
           padding-bottom: 3px;
           color: black;
-         // text-decoration: underline;
         }
-
 
         //li:hover {
         //  border: 1px solid dodgerblue;
@@ -96,18 +103,7 @@
         //}
 
       }
-      //summary::-webkit-details-marker {
-      //  display: none
-      //}
-      //
-      //
-      //details[open] summary:before {
-      //  content: "– ";
-      //}
-      //summary:before {
-      //  content: "+ ";
-      //  cursor: pointer;
-      //}
+
     }
 
   }

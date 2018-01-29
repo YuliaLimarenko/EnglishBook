@@ -1,0 +1,171 @@
+html {
+  width: 100%;
+  background: #dedfe0;
+  height: 100vh;
+
+}
+
+.wrapper-private-info {
+  margin-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  .teacher-status {
+    display: flex;
+    flex-direction: row;
+    #infotittle {
+      width: 90%;
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 5%;
+      margin-left: 10%;
+    }
+    .status {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      .work {
+        text-align: right;
+        img {
+          cursor: pointer;
+          width: 15%;
+        }
+
+      }
+      .unwork {
+        margin-left: 2%;
+        img {
+          cursor: pointer;
+          width: 15%;
+        }
+      }
+    }
+  }
+
+  .info {
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    .container-photo {
+
+      width: 40%;
+      text-align: center;
+      #preview {
+        height: 180px;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .img-thumbnail {
+        border: 1px solid grey;
+        height: 180px;
+      }
+    }
+    .mainfield {
+      width: 60%;
+      text-align: center;
+      .field {
+        padding: 2px;
+        margin-bottom: 2%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        input {
+          padding: 2px;
+          background: #dedfe0;
+          border: 1px solid darkslategrey;
+          width: 50%;
+        }
+        label {
+          width: 30%;
+          text-align: left;
+        }
+
+      }
+
+    }
+
+  }
+}
+
+@media (max-width: 908px) {
+
+  .wrapper-private-info {
+    .teacher-status {
+      #infotittle {
+        font-size: 16px;
+      }
+    }
+    .info {
+      .container-photo {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: 705px) {
+  .wrapper-private-info {
+    padding-left: 0;
+    padding-right: 0;
+    .teacher-status {
+      #infotittle {;
+        width: 100%;
+      }
+      .status{
+        .work, .unwork{
+          img{
+            width: 30%;
+          }
+
+        }
+
+      }
+    }
+    .info {
+      flex-direction: column;
+      .container-photo {
+        margin-top:-5%;
+        width: 100%;
+        .img-thumbnail {
+          height: 130px;
+        }
+      }
+      #private-info {
+        margin-top:5%;
+        width: 100%;
+        .field {
+          padding-left: 10%;
+        }
+      }
+
+    }
+  }
+}
+
+@media (max-width: 372px) {
+  main {
+    padding-bottom:10%;
+    .wrapper-private-info {
+
+      .teacher-status {
+        #infotittle {
+          width: 120%;
+          font-size: 13px;
+        }
+      }
+      .info .mainfield .field {
+        flex-direction: column;
+        input {
+          width: 80%;
+        }
+        label {
+          width: 80%;
+        }
+      }
+
+    }
+  }
+
+}

@@ -54,6 +54,17 @@ table {
 }
 
 body {
+  .buttons{
+    float: right;
+    #btnGoTo{
+      position: relative;
+      top:90px;
+      a{
+      text-decoration: none;
+        color:black;
+    }
+    }
+  }
   #NavSchedule {
     color: #1ea921;
   }

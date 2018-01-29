@@ -105,21 +105,25 @@ img {
 
   max-width: 100%;
 }
-#mainDate {
-  position: relative;
-  float: right;
-  padding-top: 1%;
-  clear: both;
+//#mainDate {
+//  position: relative;
+//  float: right;
+//  padding-top: 1%;
+//  clear: both;
+//
+//}
+//.main-filter {
+//  position: relative;
+//  float: right;
+//  margin-top: 1%;
+//  clear: both;
+//}
 
+.date-filter{
+  display: flex;
+  flex-direction:row;
+  justify-content:flex-end;
 }
-.main-filter {
-  position: relative;
-  float: right;
-  margin-top: 1%;
-  clear: both;
-}
-
-
 
 @media (max-width: 705px) {
 

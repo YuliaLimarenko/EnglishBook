@@ -1,9 +1,14 @@
-$main-color:#077759;
 
+$main-color:#077759;
+body{
+  overflow: scroll;
+}
 .Divaccordion {
   position: relative;
-  top:80px;
-  margin-left:10%;
+ top:100px;
+  margin-left:5%;
+  margin-right:5%;
+
 
 }
 summary { cursor: pointer;
@@ -16,28 +21,25 @@ summary { cursor: pointer;
 
 
 main {
-  font-size:1.5vw;
+  font-size:16px;
 
   summary::-webkit-details-marker {
     display: none
   }
-  summary{
-
-  }
   summary:before {
-    content: "+ ";
-
+     content: '► ';
   }
-
   details[open] summary:before {
-    content: "– ";
+    content: '▼';
   }
 .Divaccordion{
-  width: 70%;
-  margin-bottom:5%;
+ // width: 70%;
+//  margin-bottom:5%;
+
+
 }
   .acordion{
-    padding-top:4%;
+    margin-top:2%;
     width: 100%;
     summary{
       padding: 10px;
@@ -48,6 +50,17 @@ main {
     summary:focus, summary:active{
       outline-color: white;
     }
+    summary:before {
+      content: '+ ';
+      }
+
+    details[open] summary:before {
+      content: '– ';
+    }
+    //.no-details details > * { display: none; }
+    //.no-details details > summary:before { float: left; width: 20px; content: '+ '; }
+    //.no-details details.open > summary:before { content: '–'; }
+    //.no-details details summary { display: block; }
     ul{
       li{
         padding: 10px;
@@ -143,7 +156,7 @@ main {
   .info-about-draft-schedule-main::-webkit-scrollbar-thumb {
     height: 50px; background-color:$main-color; border-radius: 3px;}
 
- .btn-create-schedule {
+ .btn-create-schedul {
    float: right;
    #btnCreate {
 
@@ -152,25 +165,26 @@ main {
      border: none;
      color: white;
      border-radius: 10px 10px;
-     padding: 10px;
-     top:-45px;
-         outline: none;
+     padding: 8px;
+     top: 90px;
+     outline: none;
      cursor: pointer;
-     font-size:1.2vw;
+     font-size:14px;
+
 
    }
-   #btnCreate:hover{
-     border-radius: 0px 0px;
-     box-shadow:
-             0 0 0 5px #90CDAF,
-             0 0 0 10px #BFE3D1;
-     -webkit-box-shadow:
-             0 0 0 5px #90CDAF,
-             0 0 0 10px #BFE3D1;
-     -moz-box-shadow:
-             0 0 0 5px #90CDAF,
-             0 0 0 10px #BFE3D1;
-   }
+   //#btnCreate:hover{
+   //  border-radius: 0px 0px;
+   //  box-shadow:
+   //          0 0 0 5px #90CDAF,
+   //          0 0 0 10px #BFE3D1;
+   //  -webkit-box-shadow:
+   //          0 0 0 5px #90CDAF,
+   //          0 0 0 10px #BFE3D1;
+   //  -moz-box-shadow:
+   //          0 0 0 5px #90CDAF,
+   //          0 0 0 10px #BFE3D1;
+   //}
 
  }
 

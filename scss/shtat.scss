@@ -1,0 +1,77 @@
+html {
+  overflow-y: scroll;
+}
+
+#NavShtat {
+  color: #1ea921;
+}
+
+main {
+
+  .wrapperTable {
+    margin-top: 8%;
+    display: flex;
+    justify-content: center;
+    tr {
+
+      td {
+        border: 1px solid black;
+        padding: 10px 5px;
+        width: calc(100% / 3);
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: 14px;
+        }
+      }
+      td:not(.Teachername) {
+        text-align: center;
+      }
+      #choosePeriod {
+        input {
+          width: 20%;
+        }
+        .calendarDiv {
+          margin-left: 210px;
+          margin-top: 110px;
+        }
+
+        td {
+          padding: 3px 0 0 0;
+        }
+      }
+
+    }
+
+  }
+}
+
+@media print {
+
+  .navPrint {
+    display: none;
+  }
+
+  .navMobile {
+    display: none;
+  }
+  .main-filter {
+    display: none;
+  }
+
+}
+
+@media (max-width: 576px) {
+  main {
+
+    .wrapperTable {
+
+      tr {
+        td:first-child {
+          width: 70%;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,83 @@
+.calendarDiv {
+  padding-right: 10px;
+  position: absolute;
+  margin-top: -30px;
+  background: white;
+  border: 1px solid lightgray;
+  box-shadow: 7px 7px 10px -7px rgba(0, 0, 0, 0.5);
+  z-index: 10; }
+  .calendarDiv #calendarTable {
+    margin-top: 5%;
+    margin-left: 10px; }
+    .calendarDiv #calendarTable .tdDate {
+      background-image: url("../Images/krug4.png");
+      background-repeat: no-repeat;
+      -webkit-background-size: contain;
+      background-size: contain; }
+    .calendarDiv #calendarTable .calendarHat .month, .calendarDiv #calendarTable .calendarHat .year {
+      padding-top: 1%;
+      padding-bottom: 2%;
+      font-size: 2.2vh;
+      text-transform: lowercase; }
+      .calendarDiv #calendarTable .calendarHat .month .btn-name, .calendarDiv #calendarTable .calendarHat .year .btn-name {
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer; }
+        .calendarDiv #calendarTable .calendarHat .month .btn-name img, .calendarDiv #calendarTable .calendarHat .year .btn-name img {
+          width: 10px;
+          outline: none; }
+    .calendarDiv #calendarTable .dayweek td {
+      padding-top: 0;
+      padding-bottom: 0;
+      font-size: 2vh; }
+    .calendarDiv #calendarTable td {
+      border: none;
+      padding-top: 6px;
+      height: 30px;
+      width: 30px;
+      font-size: 2.3vh; }
+    .calendarDiv #calendarTable .tdNumbers span {
+      padding-left: 2px;
+      padding-right: 2px;
+      cursor: default; }
+    .calendarDiv #calendarTable .curDay {
+      cursor: default; }
+    .calendarDiv #calendarTable .tdNumbers span:hover {
+      border: 1px solid #00ad27; }
+    .calendarDiv #calendarTable .empty {
+      display: none; }
+
+.spanBr {
+  display: none; }
+
+#choosePeriod {
+  margin-left: -10%;
+  margin-top: 7%;
+  text-align: center; }
+  #choosePeriod img {
+    width: 2%;
+    top: 5px; }
+  #choosePeriod input {
+    width: 210px;
+    text-align: center; }
+
+@media (max-width: 992px) {
+  html main #choosePeriod {
+    margin-top: 9%; }
+    html main #choosePeriod .spanBr {
+      display: block; } }
+@media (max-width: 590px) {
+  html main #choosePeriod {
+    margin-top: 15%; }
+    html main #choosePeriod input {
+      width: 100px; }
+    html main #choosePeriod img {
+      width: 4%; } }
+@media (max-width: 328px) {
+  html main #choosePeriod input {
+    width: 70px; }
+  html main #choosePeriod img {
+    top: 1px; } }
+
+/*# sourceMappingURL=obj_calendar.css.map */
