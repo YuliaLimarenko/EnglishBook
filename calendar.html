@@ -11,22 +11,20 @@
 <body>
 <script src="Scripts/jquery-3.2.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<!--<script src="Scripts/bootstrap.min.js"></script>-->
 <link rel="stylesheet" type="text/css" href="CSS/style_nav.css">
 <link rel="stylesheet" type="text/css" href="CSS/calendar.css">
 <link rel="stylesheet" type="text/css" href="CSS/style_filter.css">
+<link rel="stylesheet" type="text/css" href="CSS/obj_calendar.css">
 
 <header>
     <nav>
         <ul class="navMobile">
             <li><img src="Images/burger.png" width="10%" alt="" id="gumbMob"></li>
-            <!--<li class="logoMob"><a href="index.html"><img src="Images/logo.png" width="13%" height="20%"-->
-                                                              <!--alt=Learn&Talk></a></li>-->
         </ul>
         <ul class="hideNav">
             <li><a href="list_shedule.html"id="NavSchedule">Расписание</a></li>
             <li><a href="#" id="NavStudents">Ученики</a></li>
-            <li><a href="#" id="NavShtat">Штат</a></li>
+            <li><a href="shtat.html" id="NavShtat">Штат</a></li>
             <li><a href="calendar.html" id="Navcalendar">Календарь</a></li>
             <li><a href="#" id="NavMoney">Оплата</a></li>
             <li class="nav-ul-logo">
@@ -39,46 +37,36 @@
 </header>
 
 <main>
-    <div id="mainDate"></div>
-    <div class="main-filter">
-        <form action="" onkeypress="if(event.keyCode == 13) return false">
-            <div class="input-filter">
-                <input id="inputFilter" autocomplete="off" placeholder="Введите текст или выберите фильтр" type="text">
-            </div>
-            <div id="list-filter">
-                <div class="acordeon-wrapper">
-                    <div id="acordeon-filter"></div>
-                    <div id="acordeon-span"></div>
+    <div class="date-filter">
+        <div id="mainDate"> </div>
+        <div class="main-filter">
+            <form action="" onkeypress="if(event.keyCode == 13) return false">
+                <div class="input-filter">
+                    <input id="inputFilter" autocomplete="off" placeholder="Введите текст или выберите фильтр" type="text">
                 </div>
+                <div id="list-filter">
+                    <div class="acordeon-wrapper">
+                        <div id="acordeon-filter"></div>
+                        <div id="acordeon-span">
+                            <span class="spanNoInfo">По вашему запросу информация не найдена</span>
+                        </div>
+                    </div>
 
-            </div>
-        </form>
+                </div>
+            </form>
 
+        </div>
     </div>
-    <div class="filterPeriod">
-        <span class="spanChoose">Выбрать период <br class="brperiod"></span>
-        <label>с: &#160 <input title="Введите дату в фомате 'месяц.число.год' " type="text" id="StartPeriod"></label><span
-            class="spanCal">
-        <img src="Images/calend.png" width="2%" alt="calendar" id="imgStartPeriod"></span>
 
-        <label>  &#160 по:  &#160<input title="Введите дату в фомате 'месяц.число.год' " type="text" id="FinishPeriod"> </label><span
-            class="spanCal">
-        <img src="Images/calend.png" width="2%" alt="calendar" id="imgFinishPeriod"></span>
-
+    <div id="choosePeriod">
     </div>
+
     <div class="calendar">
-        <div class="calendar1">
-            <table id="calendar1">
+        <div class="calendar-wrapper">
+            <table id="calendar">
             </table>
         </div>
-        <div class="calendar2">
-            <table id="calendar2">
-            </table>
-        </div>
-        <div class="calendar2-1">
-            <table id="calendar2-1">
-            </table>
-        </div>
+
     </div>
 
     <div class="info-about-calendar">
@@ -100,7 +88,6 @@
                 <li><img src="Images/Changes.jpg" alt="X">
                     <span>Занятия проведены с изменениями в  расписании</span>
                 </li>
-                <!--<li class="emptyLi"></li>-->
                 <li><img src="Images/Miss.jpg" alt="V">
                     <span>Планируемые занятия с изменениями в расписании</span>
                 </li>
@@ -322,10 +309,11 @@
         </div>
     </div>
 </div>
-
+<script src="Scripts/obj_calendar.js"></script>
 <script src="Scripts/script_Date.js"></script>
 <script src="Scripts/scriptCalendar.js"></script>
 <script src="Scripts/jquery.details.js"></script>
+
 <script>
     $(function() {
         // Add conditional classname based on support

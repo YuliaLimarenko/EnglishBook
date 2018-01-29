@@ -55,21 +55,33 @@
 </header>
 
 <main>
-    <div id="mainDate"> </div>
-    <div class="main-filter">
-        <form action="" onkeypress="if(event.keyCode == 13) return false">
-            <div class="input-filter">
-                <input id="inputFilter" autocomplete="off" placeholder="Введите текст или выберите фильтр" type="text">
-            </div>
-            <div id="list-filter">
-                <div class="acordeon-wrapper">
-                    <div id="acordeon-filter"></div>
-                    <div id="acordeon-span"></div>
+    <div class="date-filter">
+        <div id="mainDate"> </div>
+        <div class="main-filter">
+            <form action="" onkeypress="if(event.keyCode == 13) return false">
+                <div class="input-filter">
+                    <input id="inputFilter" autocomplete="off" placeholder="Введите текст или выберите фильтр" type="text">
                 </div>
+                <div id="list-filter">
+                    <div class="acordeon-wrapper">
+                        <div id="acordeon-filter"></div>
+                        <div id="acordeon-span">
+                            <span class="spanNoInfo">По вашему запросу информация не найдена</span>
+                        </div>
+                    </div>
 
-            </div>
-        </form>
+                </div>
+            </form>
 
+        </div>
+    </div>
+    <div class="buttons">
+        <div class="btnGoToList">
+            <button id="btnGoTo"><a id="aList" href="list_shedule.html">Назад к списку</a></button>
+        </div>
+        <!--<div class="btnSaveChange">-->
+            <!--<button id="btnSave">Сохранить изменения</button>-->
+        <!--</div>-->
     </div>
 <div class="wrapper-table">
     <!--   -->

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CreateSchedule</title>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body>
+<!--<script src="Scripts/jquery-3.2.1.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="CSS/style_nav.css">
+<link rel="stylesheet" type="text/css" href="CSS/shtat_concretic.css">
+<header>
+    <nav>
+        <ul class="navMobile">
+            <li><img src="Images/burger.png" width="10%" alt="" id="gumbMob"></li>
+        </ul>
+        <ul class="hideNav">
+            <li><a href="list_shedule.html" id="NavSchedule">Расписание</a></li>
+            <li><a href="#" id="NavStudents">Ученики</a></li>
+            <li><a href="shtat.html" id="NavShtat">Штат</a></li>
+            <li><a href="calendar.html" id="Navcalendar">Календарь</a></li>
+            <li><a href="#" id="NavMoney">Оплата</a></li>
+            <li class="nav-ul-logo">
+                <a href="index.html"><img id="imgLogo" src="Images/logo.png"
+                                          width="9%" height="20%" alt=Learn&Talk>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="date-filter">
+        <div id="mainDate"></div>
+    </div>
+
+    <div class="wrapper-private-info">
+        <div class="teacher-status">
+            <div id="infotittle">Информация о преподавателе</div>
+            <div class="status">
+                <div class="work">
+                    <img src="Images/yes.png" alt="work" title="Учитель в штате"
+                         id="btnWork">
+                </div>
+                <div class="unwork">
+                    <img src="Images/no.png" alt="unwork" title="Учитель не в штате"
+                         id="btnUnwork">
+                </div>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="container-photo">
+                <form enctype="multipart/form-data" method="post">
+                    <div>
+                        <div id="preview"><span>Загрузите фото <br>сотрудника</span></div>
+                        <input type="file" id="file" name="file">
+                    </div>
+                </form>
+            </div>
+            <div id="private-info" class="mainfield">
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="Scripts/shtatConcretic.js"></script>
+
+
+</body>
+</html>
